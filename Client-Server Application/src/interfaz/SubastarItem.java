@@ -347,8 +347,6 @@ public class SubastarItem extends javax.swing.JFrame {
  
         rowsList = con_.EjecutarSP(query, con);
         
-        System.out.println(rowsList.get(0));
-        
         if (rowsList.get(0).equals("1")) {
             JOptionPane.showMessageDialog(this, "Subasta iniciada con éxito.");
         } else {

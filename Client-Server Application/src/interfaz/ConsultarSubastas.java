@@ -5,6 +5,15 @@
  */
 package interfaz;
 
+import datos.Conexion;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Kevin MM
@@ -16,6 +25,34 @@ public class ConsultarSubastas extends javax.swing.JFrame {
      */
     public ConsultarSubastas() {
         initComponents();
+        
+        // Agrega al combobox todas las categorías
+        ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
+        
+        Conexion con_ = new Conexion();
+        Connection con = con_.CrearConexion();
+        rowsList = con_.EjecutarSP("SP_SELECT_CATEGORIAS", con);
+        
+        ComboBoxSubastasCategoria.removeAllItems();
+        
+        for (String user: rowsList) {
+            ComboBoxSubastasCategoria.addItem(user);
+        }
+        
+        rowsList = con_.EjecutarSP("SP_SELECT_SUBCATEGORIAS (IDCATEGORIAv=>" + 1 + ")", con);
+        
+        ComboBoxSubastasSubcategoria.removeAllItems();
+        
+        for (String user: rowsList) {
+            ComboBoxSubastasSubcategoria.addItem(user);
+        }
+        
+        // Close connection.
+        try {
+            con_.CerrarConexion(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(PantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -33,6 +70,10 @@ public class ConsultarSubastas extends javax.swing.JFrame {
         ListConsultaS = new javax.swing.JList<>();
         BotonConsultarSHistorial = new javax.swing.JButton();
         BotonConsultarSVolver = new javax.swing.JButton();
+        LabelSubastarCategoria = new javax.swing.JLabel();
+        ComboBoxSubastasCategoria = new javax.swing.JComboBox<>();
+        ComboBoxSubastasSubcategoria = new javax.swing.JComboBox<>();
+        LabelSubastarSubcategoria = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,11 +89,6 @@ public class ConsultarSubastas extends javax.swing.JFrame {
         });
 
         ListConsultaS.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
-        ListConsultaS.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(ListConsultaS);
 
         BotonConsultarSHistorial.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
@@ -71,48 +107,119 @@ public class ConsultarSubastas extends javax.swing.JFrame {
             }
         });
 
+        LabelSubastarCategoria.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        LabelSubastarCategoria.setText("Categoría:");
+
+        ComboBoxSubastasCategoria.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
+        ComboBoxSubastasCategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Categoria" }));
+        ComboBoxSubastasCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxSubastasCategoriaActionPerformed(evt);
+            }
+        });
+
+        ComboBoxSubastasSubcategoria.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
+        ComboBoxSubastasSubcategoria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Subcategoria" }));
+
+        LabelSubastarSubcategoria.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        LabelSubastarSubcategoria.setText("Subcategoría:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(120, Short.MAX_VALUE)
+                .addGap(253, 253, 253)
+                .addComponent(LabelConsultarS)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BotonConsultarSLogOut)
+                .addGap(30, 30, 30))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(142, 142, 142)
+                .addComponent(BotonConsultarSHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
+                .addComponent(BotonConsultarSVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(282, 282, 282))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(LabelConsultarS)
-                        .addGap(135, 135, 135)
-                        .addComponent(BotonConsultarSLogOut)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(120, 120, 120))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(BotonConsultarSHistorial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BotonConsultarSVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(293, 293, 293))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(LabelSubastarSubcategoria)
+                                .addGap(34, 34, 34)
+                                .addComponent(ComboBoxSubastasSubcategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LabelSubastarCategoria)
+                                .addGap(64, 64, 64)
+                                .addComponent(ComboBoxSubastasCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonConsultarSLogOut)
                     .addComponent(LabelConsultarS))
-                .addGap(29, 29, 29)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(BotonConsultarSHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(BotonConsultarSVolver)
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(LabelSubastarCategoria)
+                    .addComponent(ComboBoxSubastasCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ComboBoxSubastasSubcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LabelSubastarSubcategoria))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonConsultarSVolver)
+                    .addComponent(BotonConsultarSHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonConsultarSHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultarSHistorialActionPerformed
-        // TODO add your handling code here:
+        DefaultListModel model = new DefaultListModel();
+        //model.addElement("hola");
+        
+        // Agrega al combobox todos los alias de los usuarios.
+        ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
+        
+        String IDCATEGORIAv = Integer.toString(ComboBoxSubastasCategoria.getSelectedIndex() + 1);
+        String DESCRIPCIONSUBCATEGORIAv = ComboBoxSubastasSubcategoria.getSelectedItem().toString();
+        
+        Conexion con_ = new Conexion();
+        Connection con = con_.CrearConexion();
+        rowsList = con_.EjecutarSP("SP_SELECT_USERS", con);
+        
+        // Obtener índice subcategoría.
+        String query = "SP_GET_IND_SUBCATEGORIA(IDCATEGORIAv=>" + IDCATEGORIAv + ",DESCRIPCIONSUBCATEGORIAv=>'" + DESCRIPCIONSUBCATEGORIAv + "')";
+        rowsList = con_.EjecutarSP(query, con);
+        String IDSUBCATEGORIAv = rowsList.get(0);
+        
+        query = "SP_LISTAR_SUBASTAS(SUBCATEGORIAv=>" + IDSUBCATEGORIAv + ")";
+ 
+        rowsList = con_.EjecutarSP(query, con);
+        
+        for (String subasta: rowsList) {
+            model.addElement(subasta);
+        }
+        
+        // Close connection.
+        try {
+            con_.CerrarConexion(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(PantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        ListConsultaS.setModel(model);
     }//GEN-LAST:event_BotonConsultarSHistorialActionPerformed
 
     private void BotonConsultarSVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultarSVolverActionPerformed
@@ -126,6 +233,30 @@ public class ConsultarSubastas extends javax.swing.JFrame {
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonConsultarSLogOutActionPerformed
+
+    private void ComboBoxSubastasCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxSubastasCategoriaActionPerformed
+        // Agrega al combobox todas las categorías
+        ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
+
+        String indCategoria = Integer.toString(ComboBoxSubastasCategoria.getSelectedIndex() + 1);
+
+        Conexion con_ = new Conexion();
+        Connection con = con_.CrearConexion();
+        rowsList = con_.EjecutarSP("SP_SELECT_SUBCATEGORIAS (IDCATEGORIAv=>" + indCategoria + ")", con);
+
+        ComboBoxSubastasSubcategoria.removeAllItems();
+
+        for (String user: rowsList) {
+            ComboBoxSubastasSubcategoria.addItem(user);
+        }
+
+        // Close connection.
+        try {
+            con_.CerrarConexion(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(PantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_ComboBoxSubastasCategoriaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -166,7 +297,11 @@ public class ConsultarSubastas extends javax.swing.JFrame {
     private javax.swing.JButton BotonConsultarSHistorial;
     private javax.swing.JButton BotonConsultarSLogOut;
     private javax.swing.JButton BotonConsultarSVolver;
+    private javax.swing.JComboBox<String> ComboBoxSubastasCategoria;
+    private javax.swing.JComboBox<String> ComboBoxSubastasSubcategoria;
     private javax.swing.JLabel LabelConsultarS;
+    private javax.swing.JLabel LabelSubastarCategoria;
+    private javax.swing.JLabel LabelSubastarSubcategoria;
     private javax.swing.JList<String> ListConsultaS;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

@@ -5,6 +5,14 @@
  */
 package interfaz;
 
+import datos.Conexion;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Kevin MM
@@ -16,6 +24,25 @@ public class ConsultarSubastasPorParticipante extends javax.swing.JFrame {
      */
     public ConsultarSubastasPorParticipante() {
         initComponents();
+        
+        // Agrega al combobox todos los alias de los usuarios.
+        ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
+        
+        Conexion con_ = new Conexion();
+        Connection con = con_.CrearConexion();
+        rowsList = con_.EjecutarSP("SP_SELECT_USERS", con);
+        
+        for (String user: rowsList) {
+            ComboBoxModificarAlias.addItem(user);
+            System.out.println(user);
+        }
+        
+        // Close connection.
+        try {
+            con_.CerrarConexion(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(PantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -32,6 +59,8 @@ public class ConsultarSubastasPorParticipante extends javax.swing.JFrame {
         BotonListarSubastasPPLogOut = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         ListListarSubastasPP = new javax.swing.JList<>();
+        ComboBoxModificarAlias = new javax.swing.JComboBox<>();
+        LabelModificarAlias = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,24 +84,35 @@ public class ConsultarSubastasPorParticipante extends javax.swing.JFrame {
         });
 
         ListListarSubastasPP.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
-        ListListarSubastasPP.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(ListListarSubastasPP);
+
+        ComboBoxModificarAlias.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
+        ComboBoxModificarAlias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario" }));
+        ComboBoxModificarAlias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxModificarAliasActionPerformed(evt);
+            }
+        });
+
+        LabelModificarAlias.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        LabelModificarAlias.setText("Alias:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 497, Short.MAX_VALUE)
-                        .addComponent(BotonListarSubastasPPVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 120, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(LabelModificarAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addComponent(ComboBoxModificarAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotonListarSubastasPPVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(120, 120, 120))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -91,7 +131,11 @@ public class ConsultarSubastasPorParticipante extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(BotonListarSubastasPPVolver)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(BotonListarSubastasPPVolver)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(LabelModificarAlias)
+                        .addComponent(ComboBoxModificarAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(112, Short.MAX_VALUE))
         );
 
@@ -109,6 +153,34 @@ public class ConsultarSubastasPorParticipante extends javax.swing.JFrame {
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonListarSubastasPPLogOutActionPerformed
+
+    private void ComboBoxModificarAliasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxModificarAliasActionPerformed
+        DefaultListModel model = new DefaultListModel();
+
+        // Agrega al combobox todas las categorías
+        ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
+        
+        String aliasSeleccionado = ComboBoxModificarAlias.getSelectedItem().toString();
+        
+        Conexion con_ = new Conexion();
+        Connection con = con_.CrearConexion();
+        rowsList = con_.EjecutarSP("SP_LISTAR_SUBASTAS_USUARIO (ALIASVENDEDORv=>'" + aliasSeleccionado + "')", con);
+        
+        ListListarSubastasPP.removeAll();
+        
+        for (String subasta: rowsList) {
+            model.addElement(subasta);
+        }
+        
+        // Close connection.
+        try {
+            con_.CerrarConexion(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(PantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        ListListarSubastasPP.setModel(model);
+    }//GEN-LAST:event_ComboBoxModificarAliasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -148,6 +220,8 @@ public class ConsultarSubastasPorParticipante extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonListarSubastasPPLogOut;
     private javax.swing.JButton BotonListarSubastasPPVolver;
+    private javax.swing.JComboBox<String> ComboBoxModificarAlias;
+    private javax.swing.JLabel LabelModificarAlias;
     private javax.swing.JLabel LabelSubastasPP;
     private javax.swing.JList<String> ListListarSubastasPP;
     private javax.swing.JScrollPane jScrollPane1;
