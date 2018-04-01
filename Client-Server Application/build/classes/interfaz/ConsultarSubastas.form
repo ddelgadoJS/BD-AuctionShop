@@ -33,7 +33,9 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
               <Component id="BotonConsultarSHistorial" min="-2" pref="183" max="-2" attributes="0"/>
-              <EmptySpace pref="195" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="BotonConsultarVerPuja" min="-2" pref="183" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="BotonConsultarSVolver" min="-2" pref="183" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="282" max="-2" attributes="0"/>
           </Group>
@@ -87,6 +89,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="BotonConsultarSVolver" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="BotonConsultarSHistorial" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
+                  <Component id="BotonConsultarVerPuja" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -205,6 +208,17 @@
         </Property>
         <Property name="text" type="java.lang.String" value="Subcategor&#xed;a:"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="BotonConsultarVerPuja">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tw Cen MT" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Ver Pujas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonConsultarVerPujaActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

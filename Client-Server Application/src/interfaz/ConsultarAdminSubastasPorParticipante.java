@@ -135,7 +135,7 @@ public class ConsultarAdminSubastasPorParticipante extends javax.swing.JFrame {
                     .addComponent(BotonListarSubastasPPVolverAdmin)
                     .addComponent(LabelModificarAlias)
                     .addComponent(ComboBoxModificarAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(76, Short.MAX_VALUE))
         );
 
         pack();

@@ -5,6 +5,12 @@
  */
 package interfaz;
 
+import datos.Conexion;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,13 +19,18 @@ import javax.swing.JOptionPane;
  */
 public class Pujar extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Pujar
-     */
+    public static int idSubasta;
+    
     public Pujar() {
         initComponents();
     }
-
+    
+    public Pujar(int idSubasta_, String precioActual) {
+        initComponents();
+        
+        idSubasta = idSubasta_;
+        LabelMontoACambiar.setText(precioActual);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,8 +42,6 @@ public class Pujar extends javax.swing.JFrame {
 
         LabelPujar = new javax.swing.JLabel();
         BotonPujarLogOut = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        ListDescripcionSubasta = new javax.swing.JList<>();
         LabelPujarMontoActual = new javax.swing.JLabel();
         LabelPujarPuja = new javax.swing.JLabel();
         LabelMontoACambiar = new javax.swing.JLabel();
@@ -51,14 +60,6 @@ public class Pujar extends javax.swing.JFrame {
                 BotonPujarLogOutActionPerformed(evt);
             }
         });
-
-        ListDescripcionSubasta.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
-        ListDescripcionSubasta.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(ListDescripcionSubasta);
 
         LabelPujarMontoActual.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         LabelPujarMontoActual.setText("Monto Actual:");
@@ -87,17 +88,17 @@ public class Pujar extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(100, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(LabelPujar)
-                            .addGap(261, 261, 261)
-                            .addComponent(BotonPujarLogOut)
-                            .addContainerGap())
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(BotonPujarPujar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(100, 100, 100)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(242, 242, 242)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(LabelPujar)
+                                .addGap(261, 261, 261)
+                                .addComponent(BotonPujarLogOut)
+                                .addContainerGap())
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(BotonPujarPujar, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(100, 100, 100))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelPujarMontoActual)
@@ -117,9 +118,7 @@ public class Pujar extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(LabelPujar)))
-                .addGap(32, 32, 32)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(325, 325, 325)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelPujarMontoActual)
                     .addComponent(LabelMontoACambiar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -142,6 +141,31 @@ public class Pujar extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonPujarLogOutActionPerformed
 
     private void BotonPujarPujarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPujarPujarActionPerformed
+        ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
+        
+        String ALIASCOMPRADORv = PantallaInicial.aliasUsuario;
+        String INCREMENTOMINIMOv = PantallaInicial.incrementominimo;
+        String PORCENTAJEMEJORAv = PantallaInicial.porcentajemejora;
+        String IDSUBASTAv = Integer.toString(idSubasta);
+        String MONTOv = SpinnerPujarPuja.getValue().toString();
+        
+        Conexion con_ = new Conexion();
+        Connection con = con_.CrearConexion();
+
+        // Obtener índice subcategoría.
+        
+        String query = "PUJAR(INCREMENTOMINIMO=>" + INCREMENTOMINIMOv + ",PORCENTAJEMEJORA=>" + PORCENTAJEMEJORAv + 
+            ",ALIASCOMPRADORv=>'" + ALIASCOMPRADORv + "',IDSUBASTAv=>" + IDSUBASTAv + ",MONTOv=>" + MONTOv + ")";
+ 
+        rowsList = con_.EjecutarSP(query, con);
+        
+        // Close connection.
+        try {
+            con_.CerrarConexion(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(PantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         JOptionPane.showMessageDialog(this, "Puja realizada con éxito");
         PantallaParticipante frame = new PantallaParticipante();
         frame.setVisible(true);
@@ -190,8 +214,6 @@ public class Pujar extends javax.swing.JFrame {
     private javax.swing.JLabel LabelPujar;
     private javax.swing.JLabel LabelPujarMontoActual;
     private javax.swing.JLabel LabelPujarPuja;
-    private javax.swing.JList<String> ListDescripcionSubasta;
     private javax.swing.JSpinner SpinnerPujarPuja;
-    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

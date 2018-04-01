@@ -5,6 +5,14 @@
  */
 package interfaz;
 
+import datos.Conexion;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Kevin MM
@@ -16,6 +24,25 @@ public class ConsultarPujasPorParticipante extends javax.swing.JFrame {
      */
     public ConsultarPujasPorParticipante() {
         initComponents();
+        
+        // Agrega al combobox todos los alias de los usuarios.
+        ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
+        
+        Conexion con_ = new Conexion();
+        Connection con = con_.CrearConexion();
+        rowsList = con_.EjecutarSP("SP_SELECT_USERS", con);
+        
+        for (String user: rowsList) {
+            ComboBoxPGPUAlias.addItem(user);
+            System.out.println(user);
+        }
+        
+        // Close connection.
+        try {
+            con_.CerrarConexion(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(PantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -32,6 +59,8 @@ public class ConsultarPujasPorParticipante extends javax.swing.JFrame {
         BotonListarPGPULogOut = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         ListListarPGPU = new javax.swing.JList<>();
+        ComboBoxPGPUAlias = new javax.swing.JComboBox<>();
+        LabelPGPUAlias = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,30 +84,41 @@ public class ConsultarPujasPorParticipante extends javax.swing.JFrame {
         });
 
         ListListarPGPU.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
-        ListListarPGPU.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(ListListarPGPU);
+
+        ComboBoxPGPUAlias.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
+        ComboBoxPGPUAlias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario" }));
+        ComboBoxPGPUAlias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxPGPUAliasActionPerformed(evt);
+            }
+        });
+
+        LabelPGPUAlias.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        LabelPGPUAlias.setText("Alias:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(497, Short.MAX_VALUE)
-                        .addComponent(BotonListarPGPUVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(120, 120, 120))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(282, Short.MAX_VALUE)
-                .addComponent(LabelPujasGanadoras)
-                .addGap(145, 145, 145)
-                .addComponent(BotonListarPGPULogOut)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(65, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LabelPGPUAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(23, 23, 23)
+                                .addComponent(ComboBoxPGPUAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(49, 49, 49)
+                                .addComponent(BotonListarPGPUVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(120, 120, 120))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(LabelPujasGanadoras)
+                        .addGap(145, 145, 145)
+                        .addComponent(BotonListarPGPULogOut)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -90,7 +130,10 @@ public class ConsultarPujasPorParticipante extends javax.swing.JFrame {
                 .addGap(29, 29, 29)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 338, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(33, 33, 33)
-                .addComponent(BotonListarPGPUVolver)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(BotonListarPGPUVolver)
+                    .addComponent(LabelPGPUAlias)
+                    .addComponent(ComboBoxPGPUAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(112, Short.MAX_VALUE))
         );
 
@@ -108,6 +151,36 @@ public class ConsultarPujasPorParticipante extends javax.swing.JFrame {
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonListarPGPULogOutActionPerformed
+
+    private void ComboBoxPGPUAliasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxPGPUAliasActionPerformed
+        DefaultListModel model = new DefaultListModel();
+
+        // Agrega al combobox todas las categorías
+        ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
+        
+        
+        String ALIASCOMPRADOR = ComboBoxPGPUAlias.getSelectedItem().toString();
+        
+        Conexion con_ = new Conexion();
+        Connection con = con_.CrearConexion();
+        rowsList = con_.EjecutarSP("PUJASGANADORAS (ALIASCOMPRADORv=>'" + ALIASCOMPRADOR + "')", con);
+        
+        model.removeAllElements();
+        
+        for (String puja: rowsList) {
+            model.addElement(puja);
+        }
+        
+        // Close connection.
+        try {
+            con_.CerrarConexion(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(PantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                
+        ListListarPGPU.removeAll();
+        ListListarPGPU.setModel(model);
+    }//GEN-LAST:event_ComboBoxPGPUAliasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,6 +220,8 @@ public class ConsultarPujasPorParticipante extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonListarPGPULogOut;
     private javax.swing.JButton BotonListarPGPUVolver;
+    private javax.swing.JComboBox<String> ComboBoxPGPUAlias;
+    private javax.swing.JLabel LabelPGPUAlias;
     private javax.swing.JLabel LabelPujasGanadoras;
     private javax.swing.JList<String> ListListarPGPU;
     private javax.swing.JScrollPane jScrollPane1;

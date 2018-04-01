@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultListModel;
+import static javax.swing.JOptionPane.showMessageDialog;
 
 /**
  *
@@ -74,6 +75,7 @@ public class ConsultarSubastasParticipante extends javax.swing.JFrame {
         ComboBoxSubastasCategoria = new javax.swing.JComboBox<>();
         ComboBoxSubastasSubcategoria = new javax.swing.JComboBox<>();
         LabelSubastarSubcategoria = new javax.swing.JLabel();
+        BotonListarVerPujas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -132,37 +134,49 @@ public class ConsultarSubastasParticipante extends javax.swing.JFrame {
         LabelSubastarSubcategoria.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         LabelSubastarSubcategoria.setText("Subcategoría:");
 
+        BotonListarVerPujas.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        BotonListarVerPujas.setText("Ver pujas");
+        BotonListarVerPujas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonListarVerPujasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(487, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(LabelListarSubastas)
                 .addGap(165, 165, 165)
                 .addComponent(BotonListarSLogOut)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(76, 76, 76)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(LabelSubastarSubcategoria)
-                            .addGap(34, 34, 34)
-                            .addComponent(ComboBoxSubastasSubcategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(LabelSubastarCategoria)
-                            .addGap(64, 64, 64)
-                            .addComponent(ComboBoxSubastasCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(BotonListarSHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(BotonListarSPujar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(BotonListarSCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                    .addComponent(LabelSubastarSubcategoria)
+                                    .addGap(34, 34, 34)
+                                    .addComponent(ComboBoxSubastasSubcategoria, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(LabelSubastarCategoria)
+                                    .addGap(64, 64, 64)
+                                    .addComponent(ComboBoxSubastasCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(BotonListarSHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonListarSPujar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotonListarVerPujas, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BotonListarSCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(191, 191, 191))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,8 +198,11 @@ public class ConsultarSubastasParticipante extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BotonListarSHistorial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotonListarSCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotonListarSPujar))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(BotonListarSPujar)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BotonListarSCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(BotonListarVerPujas))))
                 .addGap(24, 24, 24))
         );
 
@@ -237,7 +254,11 @@ public class ConsultarSubastasParticipante extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonListarSHistorialActionPerformed
 
     private void BotonListarSPujarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarSPujarActionPerformed
-        Pujar frame = new Pujar();
+        ListListarS.getSelectedValue();
+        
+        String[] parts = ListListarS.getSelectedValue().split(",");
+        
+        Pujar frame = new Pujar(Integer.valueOf(parts[0]), parts[2]);
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonListarSPujarActionPerformed
@@ -271,6 +292,35 @@ public class ConsultarSubastasParticipante extends javax.swing.JFrame {
             Logger.getLogger(PantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_ComboBoxSubastasCategoriaActionPerformed
+
+    private void BotonListarVerPujasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarVerPujasActionPerformed
+        DefaultListModel model = new DefaultListModel();
+        
+        ListListarS.getSelectedValue();
+        
+        String[] parts = ListListarS.getSelectedValue().split(",");
+        
+        String IDSUBASTA = parts[0];
+        
+        ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
+        
+        Conexion con_ = new Conexion();
+        Connection con = con_.CrearConexion();
+        rowsList = con_.EjecutarSP("HISTORIALPUJAS(IDSUBASTAv=>" + IDSUBASTA + ")", con);
+        
+        for (String subasta: rowsList) {
+            model.addElement(subasta);
+        }
+        
+        // Close connection.
+        try {
+            con_.CerrarConexion(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(PantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        ListListarS.removeAll();
+        ListListarS.setModel(model);
+    }//GEN-LAST:event_BotonListarVerPujasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -313,6 +363,7 @@ public class ConsultarSubastasParticipante extends javax.swing.JFrame {
     private javax.swing.JButton BotonListarSHistorial;
     private javax.swing.JButton BotonListarSLogOut;
     private javax.swing.JButton BotonListarSPujar;
+    private javax.swing.JButton BotonListarVerPujas;
     private javax.swing.JComboBox<String> ComboBoxSubastasCategoria;
     private javax.swing.JComboBox<String> ComboBoxSubastasSubcategoria;
     private javax.swing.JLabel LabelListarSubastas;

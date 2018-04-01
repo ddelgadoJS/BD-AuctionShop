@@ -1,3 +1,7 @@
+﻿-- AGREGAR A TODAS LAS REFERENCIAS A TABLAS EL USUARIO AL INICIO.
+-- USUARIO: C##_USR_ADMIN.CATEGORIA
+-- EJEMPLO: C##_USR_ADMIN.CATEGORIA
+
 -- • Incluir un nuevo usuario (administrador o participante) en el sistema.
 -- • Entrada: datos del nuevo usuario.
 -- • Usuario autorizado: admin

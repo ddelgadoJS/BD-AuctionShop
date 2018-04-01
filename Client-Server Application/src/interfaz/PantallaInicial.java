@@ -21,6 +21,12 @@ public class PantallaInicial extends javax.swing.JFrame {
 
     public static String aliasUsuario;
     
+    public static String incrementominimo = "5000";
+    public static String porcentajemejora = "0.5";
+    
+    // Set:
+    // PantallaInicial.incrementominimo = "X";
+    
     public PantallaInicial() {
         initComponents();
         EntryPassword.setEchoChar('•');
