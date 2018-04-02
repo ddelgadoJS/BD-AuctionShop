@@ -27,17 +27,13 @@ public class ConsultarUsuarioParticipante extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        EntryConsultarPUAlias = new javax.swing.JTextField();
         BotonConsultarPUListarHistorialPujas = new javax.swing.JButton();
         BotonConsultarPUListarHistorialSubastas = new javax.swing.JButton();
         BotonConsultaPUCancelar = new javax.swing.JButton();
         LabelConsultarPUsuario = new javax.swing.JLabel();
         BotonConsultarPULogOut = new javax.swing.JButton();
-        LabelConsultarPUAlias = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        EntryConsultarPUAlias.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
 
         BotonConsultarPUListarHistorialPujas.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         BotonConsultarPUListarHistorialPujas.setText("Historial Pujas Ganadoras");
@@ -74,9 +70,6 @@ public class ConsultarUsuarioParticipante extends javax.swing.JFrame {
             }
         });
 
-        LabelConsultarPUAlias.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
-        LabelConsultarPUAlias.setText("Alias:");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,24 +77,17 @@ public class ConsultarUsuarioParticipante extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(373, 373, 373)
-                                .addComponent(LabelConsultarPUAlias)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 255, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(LabelConsultarPUsuario)
-                                .addGap(145, 145, 145)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(LabelConsultarPUsuario)
+                        .addGap(145, 145, 145)
                         .addComponent(BotonConsultarPULogOut))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(256, 256, 256)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(BotonConsultarPUListarHistorialPujas)
-                            .addComponent(EntryConsultarPUAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BotonConsultarPUListarHistorialSubastas, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(BotonConsultaPUCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 251, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -111,11 +97,7 @@ public class ConsultarUsuarioParticipante extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LabelConsultarPUsuario)
                     .addComponent(BotonConsultarPULogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(77, 77, 77)
-                .addComponent(LabelConsultarPUAlias)
-                .addGap(37, 37, 37)
-                .addComponent(EntryConsultarPUAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(95, 95, 95)
+                .addGap(271, 271, 271)
                 .addComponent(BotonConsultarPUListarHistorialPujas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BotonConsultarPUListarHistorialSubastas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,8 +173,6 @@ public class ConsultarUsuarioParticipante extends javax.swing.JFrame {
     private javax.swing.JButton BotonConsultarPUListarHistorialPujas;
     private javax.swing.JButton BotonConsultarPUListarHistorialSubastas;
     private javax.swing.JButton BotonConsultarPULogOut;
-    private javax.swing.JTextField EntryConsultarPUAlias;
-    private javax.swing.JLabel LabelConsultarPUAlias;
     private javax.swing.JLabel LabelConsultarPUsuario;
     // End of variables declaration//GEN-END:variables
 }

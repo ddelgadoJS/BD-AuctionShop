@@ -34,6 +34,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
         BotonListarSubastas = new javax.swing.JButton();
         BotonAdminLogOut = new javax.swing.JButton();
         BotonAgregarTelefono = new javax.swing.JButton();
+        BotonActualizarParametros = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -88,6 +89,14 @@ public class PantallaAdmin extends javax.swing.JFrame {
             }
         });
 
+        BotonActualizarParametros.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        BotonActualizarParametros.setText("Actualizar Parametros");
+        BotonActualizarParametros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonActualizarParametrosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -99,13 +108,14 @@ public class PantallaAdmin extends javax.swing.JFrame {
                 .addComponent(BotonAdminLogOut)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(250, 250, 250)
+                .addGap(249, 249, 249)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BotonRegistrarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotonModificarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 301, Short.MAX_VALUE)
+                    .addComponent(BotonModificarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BotonConsultarUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(BotonListarSubastas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(BotonAgregarTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(BotonAgregarTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(BotonActualizarParametros, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -118,7 +128,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(BotonAdminLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(86, 86, 86)
+                .addGap(47, 47, 47)
                 .addComponent(BotonRegistrarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(BotonModificarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -128,7 +138,9 @@ public class PantallaAdmin extends javax.swing.JFrame {
                 .addComponent(BotonConsultarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(BotonListarSubastas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(96, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(BotonActualizarParametros, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         pack();
@@ -170,6 +182,12 @@ public class PantallaAdmin extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_BotonConsultarUsuarioActionPerformed
 
+    private void BotonActualizarParametrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonActualizarParametrosActionPerformed
+        ActualizarParametros frame = new ActualizarParametros();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BotonActualizarParametrosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -206,6 +224,7 @@ public class PantallaAdmin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonActualizarParametros;
     private javax.swing.JButton BotonAdminLogOut;
     private javax.swing.JButton BotonAgregarTelefono;
     private javax.swing.JButton BotonConsultarUsuario;

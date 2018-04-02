@@ -254,7 +254,7 @@ public class ConsultarSubastasParticipante extends javax.swing.JFrame {
     private void BotonListarSPujarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarSPujarActionPerformed
         ListListarS.getSelectedValue();
         
-        String[] parts = ListListarS.getSelectedValue().split(",");
+        String[] parts = ListListarS.getSelectedValue().split(", ");
         
         Pujar frame = new Pujar(Integer.valueOf(parts[0]), parts[2]);
         frame.setVisible(true);

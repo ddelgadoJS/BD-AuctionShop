@@ -26,29 +26,19 @@
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="373" max="-2" attributes="0"/>
-                              <Component id="LabelConsultarUAlias" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="252" max="32767" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="32767" attributes="0"/>
-                              <Component id="LabelConsultarUsuario" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="LabelConsultarUsuario" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
                       <Component id="BotonConsultarULogOut" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="256" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Component id="BotonConsultarUListarHistorialPujas" min="-2" max="-2" attributes="0"/>
-                          <Component id="EntryConsultarUAlias" min="-2" pref="283" max="-2" attributes="0"/>
                           <Component id="BotonConsultarUListarHistorialSubastas" alignment="1" min="-2" pref="283" max="-2" attributes="0"/>
                           <Component id="BotonConsultaUCancelar" alignment="1" min="-2" pref="283" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="248" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -63,11 +53,7 @@
                   <Component id="LabelConsultarUsuario" min="-2" max="-2" attributes="0"/>
                   <Component id="BotonConsultarULogOut" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
-              <Component id="LabelConsultarUAlias" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
-              <Component id="EntryConsultarUAlias" min="-2" pref="35" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="271" max="-2" attributes="0"/>
               <Component id="BotonConsultarUListarHistorialPujas" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="BotonConsultarUListarHistorialSubastas" min="-2" pref="35" max="-2" attributes="0"/>
@@ -97,21 +83,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonConsultarULogOutActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="LabelConsultarUAlias">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tw Cen MT" size="24" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Alias:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="EntryConsultarUAlias">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tw Cen MT" size="20" style="0"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="BotonConsultarUListarHistorialPujas">
       <Properties>

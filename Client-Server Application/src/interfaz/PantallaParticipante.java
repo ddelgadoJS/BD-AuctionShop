@@ -32,6 +32,8 @@ public class PantallaParticipante extends javax.swing.JFrame {
         BotonParticipanteSubastarItem = new javax.swing.JButton();
         BotonParticipanteListarSubastas = new javax.swing.JButton();
         BotonParticipanteConsultarUsuario = new javax.swing.JButton();
+        BotonParticipanteCSubastasGanadasUsuario = new javax.swing.JButton();
+        BotonParticipanteSubastasRealizadasUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -63,10 +65,26 @@ public class PantallaParticipante extends javax.swing.JFrame {
         });
 
         BotonParticipanteConsultarUsuario.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
-        BotonParticipanteConsultarUsuario.setText("Consultar Usuario");
+        BotonParticipanteConsultarUsuario.setText("Subastas Ganadas");
         BotonParticipanteConsultarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonParticipanteConsultarUsuarioActionPerformed(evt);
+            }
+        });
+
+        BotonParticipanteCSubastasGanadasUsuario.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        BotonParticipanteCSubastasGanadasUsuario.setText("Subastas Realizadas");
+        BotonParticipanteCSubastasGanadasUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonParticipanteCSubastasGanadasUsuarioActionPerformed(evt);
+            }
+        });
+
+        BotonParticipanteSubastasRealizadasUsuario.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        BotonParticipanteSubastasRealizadasUsuario.setText("Subastas Ganadoras");
+        BotonParticipanteSubastasRealizadasUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonParticipanteSubastasRealizadasUsuarioActionPerformed(evt);
             }
         });
 
@@ -75,19 +93,28 @@ public class PantallaParticipante extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LabelParticipante)
-                .addGap(238, 238, 238)
-                .addComponent(BotonParticipanteLogOut)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap(319, Short.MAX_VALUE)
+                        .addComponent(LabelParticipante)
+                        .addGap(238, 238, 238)
+                        .addComponent(BotonParticipanteLogOut))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(197, 197, 197)
+                                .addComponent(BotonParticipanteCSubastasGanadasUsuario)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(BotonParticipanteSubastasRealizadasUsuario))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(89, 89, 89)
+                                .addComponent(BotonParticipanteListarSubastas, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(BotonParticipanteSubastarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(BotonParticipanteConsultarUsuario)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(89, 89, 89)
-                .addComponent(BotonParticipanteListarSubastas, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BotonParticipanteSubastarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(BotonParticipanteConsultarUsuario)
-                .addContainerGap(126, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,10 +125,14 @@ public class PantallaParticipante extends javax.swing.JFrame {
                     .addComponent(BotonParticipanteLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(197, 197, 197)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonParticipanteConsultarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonParticipanteSubastarItem, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonParticipanteListarSubastas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(317, Short.MAX_VALUE))
+                    .addComponent(BotonParticipanteListarSubastas, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonParticipanteConsultarUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(BotonParticipanteSubastasRealizadasUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BotonParticipanteCSubastasGanadasUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(264, Short.MAX_VALUE))
         );
 
         pack();
@@ -130,6 +161,18 @@ public class PantallaParticipante extends javax.swing.JFrame {
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonParticipanteLogOutActionPerformed
+
+    private void BotonParticipanteCSubastasGanadasUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParticipanteCSubastasGanadasUsuarioActionPerformed
+        SubastasRealizadas frame = new SubastasRealizadas();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BotonParticipanteCSubastasGanadasUsuarioActionPerformed
+
+    private void BotonParticipanteSubastasRealizadasUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParticipanteSubastasRealizadasUsuarioActionPerformed
+        SubastasGanadoras frame = new SubastasGanadoras();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_BotonParticipanteSubastasRealizadasUsuarioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -167,10 +210,12 @@ public class PantallaParticipante extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonParticipanteCSubastasGanadasUsuario;
     private javax.swing.JButton BotonParticipanteConsultarUsuario;
     private javax.swing.JButton BotonParticipanteListarSubastas;
     private javax.swing.JButton BotonParticipanteLogOut;
     private javax.swing.JButton BotonParticipanteSubastarItem;
+    private javax.swing.JButton BotonParticipanteSubastasRealizadasUsuario;
     private javax.swing.JLabel LabelParticipante;
     // End of variables declaration//GEN-END:variables
 }

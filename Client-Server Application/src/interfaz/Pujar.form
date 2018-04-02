@@ -23,36 +23,42 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="100" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="LabelPujar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
-                              <Component id="BotonPujarLogOut" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="BotonPujarPujar" min="-2" pref="125" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="100" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="LabelPujar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="261" max="-2" attributes="0"/>
+                      <Component id="BotonPujarLogOut" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="LabelPujarMontoActual" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="LabelPujarPuja" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="247" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="LabelPujarMontoActual" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelPujarPuja" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="LabelPujarPujaMinima" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="LabelMontoACambiar" max="32767" attributes="0"/>
+                                  <Component id="SpinnerPujarPuja" min="-2" pref="99" max="-2" attributes="0"/>
+                                  <Component id="LabelMontoMinimoPujar" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="332" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="BotonPujarCancelar" min="-2" pref="125" max="-2" attributes="0"/>
+                                  <Component id="BotonPujarPujar" min="-2" pref="125" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="LabelMontoACambiar" max="32767" attributes="0"/>
-                          <Component id="SpinnerPujarPuja" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="0" pref="291" max="32767" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,19 +75,26 @@
                       <Component id="LabelPujar" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="-2" pref="325" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LabelPujarMontoActual" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="LabelMontoACambiar" alignment="3" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="LabelPujarPujaMinima" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="LabelMontoMinimoPujar" alignment="3" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="SpinnerPujarPuja" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
                   <Component id="LabelPujarPuja" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
               <Component id="BotonPujarPujar" min="-2" pref="35" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="BotonPujarCancelar" min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="194" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -127,7 +140,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tw Cen MT" size="20" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="$12345678"/>
+        <Property name="text" type="java.lang.String" value="$"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSpinner" name="SpinnerPujarPuja">
@@ -136,7 +149,7 @@
           <Font name="Tw Cen MT" size="20" style="0"/>
         </Property>
         <Property name="model" type="javax.swing.SpinnerModel" editor="org.netbeans.modules.form.editors2.SpinnerModelEditor">
-          <SpinnerModel initial="12345678" minimum="12345678" numberType="java.lang.Integer" stepSize="500" type="number"/>
+          <SpinnerModel initial="0" minimum="0" numberType="java.lang.Integer" stepSize="1" type="number"/>
         </Property>
       </Properties>
     </Component>
@@ -149,6 +162,33 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonPujarPujarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelPujarPujaMinima">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tw Cen MT" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Puja M&#xed;nima:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelMontoMinimoPujar">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tw Cen MT" size="20" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="$"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="BotonPujarCancelar">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tw Cen MT" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cancelar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonPujarCancelarActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
