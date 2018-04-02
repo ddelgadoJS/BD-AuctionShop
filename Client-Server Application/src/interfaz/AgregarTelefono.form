@@ -36,7 +36,7 @@
                           <Group type="102" attributes="0">
                               <Component id="LabelAgregarNumTelefono" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="EntryAliasUsuario" min="-2" pref="170" max="-2" attributes="0"/>
+                              <Component id="ComboBoxModificarAlias" min="-2" pref="199" max="-2" attributes="0"/>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
@@ -77,12 +77,12 @@
                   <Component id="LabelAgregarTelefono" min="-2" max="-2" attributes="0"/>
                   <Component id="BotonAgregarLogOut" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="EntryAliasUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="LabelAgregarNumTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ComboBoxModificarAlias" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LabelAgregarDescripcion" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="EntryAgregarNumTel" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -171,16 +171,6 @@
         <Property name="text" type="java.lang.String" value="Descripci&#xf3;n: "/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="EntryAliasUsuario">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tw Cen MT" size="20" style="0"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EntryAliasUsuarioActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JLabel" name="LabelAgregarNumTelefono1">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -188,6 +178,21 @@
         </Property>
         <Property name="text" type="java.lang.String" value="N&#xfa;mero de Tel&#xe9;fono: "/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="ComboBoxModificarAlias">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tw Cen MT" size="20" style="0"/>
+        </Property>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="1">
+            <StringItem index="0" value="Usuario"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

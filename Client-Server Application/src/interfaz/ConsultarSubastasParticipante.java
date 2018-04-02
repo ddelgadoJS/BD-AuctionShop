@@ -199,10 +199,9 @@ public class ConsultarSubastasParticipante extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BotonListarSHistorial, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(BotonListarSPujar)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(BotonListarSCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(BotonListarVerPujas))))
+                        .addComponent(BotonListarSCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(BotonListarVerPujas))
+                    .addComponent(BotonListarSPujar))
                 .addGap(24, 24, 24))
         );
 
@@ -240,7 +239,6 @@ public class ConsultarSubastasParticipante extends javax.swing.JFrame {
         
         for (String subasta: rowsList) {
             model.addElement(subasta);
-            System.out.println(subasta);
         }
         
         // Close connection.

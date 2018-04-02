@@ -34,7 +34,6 @@ public class ConsultarAdminSubastasPorParticipante extends javax.swing.JFrame {
         
         for (String user: rowsList) {
             ComboBoxModificarAlias.addItem(user);
-            System.out.println(user);
         }
         
         // Close connection.

@@ -26,16 +26,15 @@ public class ModificarUsuario extends javax.swing.JFrame {
         initComponents();
         EntryModificarPassword.setEchoChar('•');
         
-        // Agrega al combobox todos los alias de los usuarios.
         ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
         
         Conexion con_ = new Conexion();
         Connection con = con_.CrearConexion();
         rowsList = con_.EjecutarSP("SP_SELECT_USERS", con);
         
+        // Adds to the combobox all the users.
         for (String user: rowsList) {
             ComboBoxModificarAlias.addItem(user);
-            System.out.println(user);
         }
         
         // Close connection.
@@ -251,6 +250,7 @@ public class ModificarUsuario extends javax.swing.JFrame {
         Connection con = con_.CrearConexion();
         String query = "SP_MODIFICAR_USUARIO(ALIASv=>'" + ALIASv + "'";
         
+        // Checks if the entry box is empty.
         if (!NOMBREv.isEmpty()) query += ",NOMBREv=>'"+ NOMBREv +"'";
         if (!APELLIDOSv.isEmpty()) query += ",APELLIDOSv=>'"+ APELLIDOSv +"'";
         if (!DIRECCIONv.isEmpty()) query += ",DIRECCIONv=>'"+ DIRECCIONv +"'";
@@ -260,18 +260,21 @@ public class ModificarUsuario extends javax.swing.JFrame {
         if (!PASSWORDv.isEmpty()) query += ",PASSWORDv=>'"+ PASSWORDv +"'";
         
         query += ")";
+        
         rowsList = con_.EjecutarSP(query, con);
         
         String[] parts = rowsList.get(0).split(",");
-        String success = parts[0];
-        String usrType = parts[1];
+        String success = parts[0]; // 0: error, 1: success
+        String usrType = parts[1]; // ADMINISTRADOR o PARTICIPANTE
         
-        if (success.equals("1") && usrType.equals("ADMINISTRADOR")) {
-            showMessageDialog(null, "Administrador actualizado.");
-        } else if (success.equals("1") && usrType.equals("PARTICIPANTE")) {
-            showMessageDialog(null, "Participante actualizado.");
+        if (success.equals("1")) {
+            if (usrType.equals("ADMINISTRADOR")) {
+                showMessageDialog(null, "Administrador actualizado.");
+            } else if (usrType.equals("PARTICIPANTE")) {
+                showMessageDialog(null, "Participante actualizado.");
+            }
         } else if (success.equals("0")) {
-            showMessageDialog(null, "Alias no encontrado");
+            showMessageDialog(null, "Alias no encontrado.");
         }
         
         // Close connection.

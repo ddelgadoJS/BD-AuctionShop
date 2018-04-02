@@ -140,34 +140,44 @@ public class PantallaInicial extends javax.swing.JFrame {
     private void BotonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonLoginActionPerformed
         ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
         
-        String USR = EntryAlias.getText();
-        String PSS = String.valueOf(EntryPassword.getPassword());
+        String USR = EntryAlias.getText(); // User alias.
+        String PSS = String.valueOf(EntryPassword.getPassword()); // User password.
         
+        // Creating connection.
         Conexion con_ = new Conexion();
         Connection con = con_.CrearConexion();
+        // The SP owner must be wrote before the SP name.
         rowsList = con_.EjecutarSP("SP_LOGIN(ALIASv=>'" + USR + "', PASSWORDv=>'" + PSS + "')", con);
         
+        /* Splitting returned string "x, y, z"
+            x - 1: alias found, 0: alias not found.
+            y - 1: correct password, 0: incorrect password.
+            z - User type: "PARTICIPANTE" or "ADMINISTRADOR".
+        */
         String[] parts = rowsList.get(0).split(",");
         String usrAlias = parts[0];
         String usrPassword = parts[1];
         String usrType = parts[2];
         
-        if (usrAlias.equals("1") && usrPassword.equals("1") && usrType.equals("ADMINISTRADOR")) {
-            PantallaInicial.aliasUsuario = USR; // Set the user alias.
-            PantallaAdmin frame = new PantallaAdmin();
-            frame.setVisible(true);
-            this.setVisible(false);
-        } else if (usrAlias.equals("1") && usrPassword.equals("1") && usrType.equals("PARTICIPANTE")) {
-            PantallaInicial.aliasUsuario = USR;
-            PantallaParticipante frame = new PantallaParticipante();
-            frame.setVisible(true);
-            this.setVisible(false);
+        if (usrAlias.equals("1") && usrPassword.equals("1")) { // Correct alias and password.
+            PantallaInicial.aliasUsuario = USR; // Sets the user alias to be used on other screens.
+            
+            if (usrType.equals("ADMINISTRADOR")) {
+                PantallaAdmin frame = new PantallaAdmin();
+                frame.setVisible(true);
+                this.setVisible(false);
+            } else if (usrType.equals("PARTICIPANTE")) {
+                PantallaParticipante frame = new PantallaParticipante();
+                frame.setVisible(true);
+                this.setVisible(false);
+            }  
+            
         } else if (usrAlias.equals("0")) {
-            showMessageDialog(null, "El alias no es correcto.");
+            showMessageDialog(null, "Alias incorrecto");
         } else if (usrPassword.equals("0")) {
-            showMessageDialog(null, "La contraseña no es correcta.");
+            showMessageDialog(null, "Contraseña incorrecta.");
         } else {
-            showMessageDialog(null, "Error.");
+            showMessageDialog(null, "Unknown error.");
         }
         
         // Close connection.

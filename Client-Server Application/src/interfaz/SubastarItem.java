@@ -34,7 +34,7 @@ public class SubastarItem extends javax.swing.JFrame {
         rowsList = con_.EjecutarSP("SP_SELECT_CATEGORIAS", con);
         
         ComboBoxSubastarCategoria.removeAllItems();
-        
+        // Adds to the combobox all the categories.
         for (String user: rowsList) {
             ComboBoxSubastarCategoria.addItem(user);
         }
@@ -42,7 +42,7 @@ public class SubastarItem extends javax.swing.JFrame {
         rowsList = con_.EjecutarSP("SP_SELECT_SUBCATEGORIAS (IDCATEGORIAv=>" + 1 + ")", con);
         
         ComboBoxSubastarSubcategoria.removeAllItems();
-        
+        // Adds to the combobox all the subcategories from first category.
         for (String user: rowsList) {
             ComboBoxSubastarSubcategoria.addItem(user);
         }
@@ -336,7 +336,7 @@ public class SubastarItem extends javax.swing.JFrame {
         Conexion con_ = new Conexion();
         Connection con = con_.CrearConexion();
 
-        // Obtener índice subcategoría.
+        // Get subcategory index.
         String query = "SP_GET_IND_SUBCATEGORIA(IDCATEGORIAv=>" + IDCATEGORIAv + ",DESCRIPCIONSUBCATEGORIAv=>'" + DESCRIPCIONSUBCATEGORIAv + "')";
         rowsList = con_.EjecutarSP(query, con);
         String IDSUBCATEGORIAv = rowsList.get(0);
@@ -345,7 +345,7 @@ public class SubastarItem extends javax.swing.JFrame {
             ",DESCRIPCIONITEMv=>'" + DESCRIPCIONITEMv + "',MODOENTREGAv=>'" + MODOENTREGAv + "',COMENTARIOVENDEDORv=>'" + COMENTARIOVENDEDORv +
             "',FECHAFINv=>'" + FECHAFINv + "',HORAFINv=>'" + HORAFINv + "',IDSUBCATEGORIAv=>" + IDSUBCATEGORIAv + ")";
  
-        rowsList = con_.EjecutarSP(query, con);
+        rowsList = con_.EjecutarSP(query, con); // 1 : success.
         
         if (rowsList.get(0).equals("1")) {
             JOptionPane.showMessageDialog(this, "Subasta iniciada con éxito.");

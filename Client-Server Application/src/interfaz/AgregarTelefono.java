@@ -24,6 +24,24 @@ public class AgregarTelefono extends javax.swing.JFrame {
      */
     public AgregarTelefono() {
         initComponents();
+        
+        ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
+        
+        Conexion con_ = new Conexion();
+        Connection con = con_.CrearConexion();
+        rowsList = con_.EjecutarSP("SP_SELECT_USERS", con);
+        
+        // Adds to the combobox all the users.
+        for (String user: rowsList) {
+            ComboBoxModificarAlias.addItem(user);
+        }
+        
+        // Close connection.
+        try {
+            con_.CerrarConexion(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(PantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -43,8 +61,8 @@ public class AgregarTelefono extends javax.swing.JFrame {
         BotonAgregarFinalizar = new javax.swing.JButton();
         LabelAgregarNumTelefono = new javax.swing.JLabel();
         LabelAgregarDescripcion = new javax.swing.JLabel();
-        EntryAliasUsuario = new javax.swing.JTextField();
         LabelAgregarNumTelefono1 = new javax.swing.JLabel();
+        ComboBoxModificarAlias = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 600));
@@ -86,15 +104,11 @@ public class AgregarTelefono extends javax.swing.JFrame {
         LabelAgregarDescripcion.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         LabelAgregarDescripcion.setText("Descripción: ");
 
-        EntryAliasUsuario.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
-        EntryAliasUsuario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EntryAliasUsuarioActionPerformed(evt);
-            }
-        });
-
         LabelAgregarNumTelefono1.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         LabelAgregarNumTelefono1.setText("Número de Teléfono: ");
+
+        ComboBoxModificarAlias.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
+        ComboBoxModificarAlias.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -110,7 +124,7 @@ public class AgregarTelefono extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(LabelAgregarNumTelefono)
                                 .addGap(18, 18, 18)
-                                .addComponent(EntryAliasUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(ComboBoxModificarAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(EntryAgregarNumTel, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
@@ -139,11 +153,11 @@ public class AgregarTelefono extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LabelAgregarTelefono)
                     .addComponent(BotonAgregarLogOut))
-                .addGap(81, 81, 81)
+                .addGap(78, 78, 78)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EntryAliasUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelAgregarNumTelefono))
-                .addGap(80, 80, 80)
+                    .addComponent(LabelAgregarNumTelefono)
+                    .addComponent(ComboBoxModificarAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(77, 77, 77)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelAgregarDescripcion)
                     .addComponent(EntryAgregarNumTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -159,14 +173,10 @@ public class AgregarTelefono extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void EntryAliasUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntryAliasUsuarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EntryAliasUsuarioActionPerformed
-
     private void BotonAgregarAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarAgregarActionPerformed
         ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
         
-        String ALIASv = EntryAliasUsuario.getText();
+        String ALIASv = ComboBoxModificarAlias.getSelectedItem().toString();
         String NUMEROv = EntryAgregarNumTel.getText();
         String DESCRIPCIONv = EntryAgregarDescripcion.getText();
         
@@ -244,9 +254,9 @@ public class AgregarTelefono extends javax.swing.JFrame {
     private javax.swing.JButton BotonAgregarAgregar;
     private javax.swing.JButton BotonAgregarFinalizar;
     private javax.swing.JButton BotonAgregarLogOut;
+    private javax.swing.JComboBox<String> ComboBoxModificarAlias;
     private javax.swing.JTextField EntryAgregarDescripcion;
     private javax.swing.JTextField EntryAgregarNumTel;
-    private javax.swing.JTextField EntryAliasUsuario;
     private javax.swing.JLabel LabelAgregarDescripcion;
     private javax.swing.JLabel LabelAgregarNumTelefono;
     private javax.swing.JLabel LabelAgregarNumTelefono1;
