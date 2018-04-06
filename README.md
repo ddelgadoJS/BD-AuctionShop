@@ -3,7 +3,7 @@
 
 ## Author
 
-The main contributor is [Daniel Delgado](https://github.com/ddelgadoJS). For further details, you can go to the [contributors graph](https://github.com/ddelgadoJS/Basic-Linux-Workshop/graphs/contributors).
+The main contributors are [Daniel Delgado](https://github.com/ddelgadoJS) and Kevin Montoya. For further details, you can go to the [contributors graph](https://github.com/ddelgadoJS/Basic-Linux-Workshop/graphs/contributors).
 
 ## License
 
