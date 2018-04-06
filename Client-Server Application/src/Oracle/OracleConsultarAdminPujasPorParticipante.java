@@ -63,6 +63,7 @@ public class OracleConsultarAdminPujasPorParticipante extends javax.swing.JFrame
         ComboBoxPGPUAliasAdmin = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Oracle");
 
         BotonListarPGPUVolverAdmin.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         BotonListarPGPUVolverAdmin.setText("Volver");

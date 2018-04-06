@@ -54,6 +54,7 @@ public class PostgreSQLPantallaInicial extends javax.swing.JFrame {
         jPasswordField1.setText("jPasswordField1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         LabelTitulo.setFont(new java.awt.Font("Tw Cen MT", 0, 48)); // NOI18N
         LabelTitulo.setText("Casa de Subastas el Potro Salvaje");

@@ -42,6 +42,7 @@ public class PostgreSQLConsultarUsuario extends javax.swing.JFrame {
         BotonConsultaUCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         LabelConsultarUsuario.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         LabelConsultarUsuario.setText("Consultar Usuario");
@@ -118,25 +119,25 @@ public class PostgreSQLConsultarUsuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonConsultarULogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultarULogOutActionPerformed
-        OraclePantallaInicial frame = new OraclePantallaInicial();
+        PostgreSQLPantallaInicial frame = new PostgreSQLPantallaInicial();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonConsultarULogOutActionPerformed
 
     private void BotonConsultarUListarHistorialPujasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultarUListarHistorialPujasActionPerformed
-        OracleConsultarAdminPujasPorParticipante frame = new OracleConsultarAdminPujasPorParticipante();
+        PostgreSQLConsultarAdminPujasPorParticipante frame = new PostgreSQLConsultarAdminPujasPorParticipante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonConsultarUListarHistorialPujasActionPerformed
 
     private void BotonConsultarUListarHistorialSubastasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultarUListarHistorialSubastasActionPerformed
-        OracleConsultarAdminSubastasPorParticipante frame = new OracleConsultarAdminSubastasPorParticipante();
+        PostgreSQLConsultarAdminSubastasPorParticipante frame = new PostgreSQLConsultarAdminSubastasPorParticipante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonConsultarUListarHistorialSubastasActionPerformed
 
     private void BotonConsultaUCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultaUCancelarActionPerformed
-        OraclePantallaAdmin frame = new OraclePantallaAdmin();
+        PostgreSQLPantallaAdmin frame = new PostgreSQLPantallaAdmin();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonConsultaUCancelarActionPerformed

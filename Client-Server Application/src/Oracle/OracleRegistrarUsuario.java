@@ -62,6 +62,7 @@ public class OracleRegistrarUsuario extends javax.swing.JFrame {
         ComboBoxRegistrarTipoUsuario = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Oracle");
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         jLabel1.setText("Registrar Usuario");

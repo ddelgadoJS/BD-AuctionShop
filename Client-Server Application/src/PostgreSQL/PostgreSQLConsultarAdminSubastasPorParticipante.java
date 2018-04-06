@@ -58,6 +58,7 @@ public class PostgreSQLConsultarAdminSubastasPorParticipante extends javax.swing
         LabelModificarAlias = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         LabelSubastasPPAdmin.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         LabelSubastasPPAdmin.setText("Subastas");
@@ -137,13 +138,13 @@ public class PostgreSQLConsultarAdminSubastasPorParticipante extends javax.swing
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonListarSubastasPPLogOutAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarSubastasPPLogOutAdminActionPerformed
-        OraclePantallaInicial frame = new OraclePantallaInicial();
+        PostgreSQLPantallaInicial frame = new PostgreSQLPantallaInicial();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonListarSubastasPPLogOutAdminActionPerformed
 
     private void BotonListarSubastasPPVolverAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarSubastasPPVolverAdminActionPerformed
-        OracleConsultarUsuario frame = new OracleConsultarUsuario();
+        PostgreSQLConsultarUsuario frame = new PostgreSQLConsultarUsuario();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonListarSubastasPPVolverAdminActionPerformed

@@ -76,6 +76,7 @@ public class OracleModificarUsuario extends javax.swing.JFrame {
         ComboBoxModificarAlias = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Oracle");
 
         LabelModificar.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         LabelModificar.setText("Modificar Usuario");

@@ -39,6 +39,7 @@ public class PostgreSQLPantallaAdmin extends javax.swing.JFrame {
         BotonActualizarParametros = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         LabelAdministrador.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         LabelAdministrador.setText("Administrador");
@@ -149,13 +150,13 @@ public class PostgreSQLPantallaAdmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonModificarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarUsuarioActionPerformed
-        OracleModificarUsuario frame = new OracleModificarUsuario();
+        PostgreSQLModificarUsuario frame = new PostgreSQLModificarUsuario();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonModificarUsuarioActionPerformed
 
     private void BotonRegistrarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarUsuarioActionPerformed
-        OracleRegistrarUsuario frame = new OracleRegistrarUsuario();
+        PostgreSQLRegistrarUsuario frame = new PostgreSQLRegistrarUsuario();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonRegistrarUsuarioActionPerformed
@@ -167,19 +168,19 @@ public class PostgreSQLPantallaAdmin extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonListarSubastasActionPerformed
 
     private void BotonAdminLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAdminLogOutActionPerformed
-        OraclePantallaInicial frame = new OraclePantallaInicial();
+        PostgreSQLPantallaInicial frame = new PostgreSQLPantallaInicial();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonAdminLogOutActionPerformed
 
     private void BotonAgregarTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarTelefonoActionPerformed
-        OracleAgregarTelefono frame = new OracleAgregarTelefono();
+        PostgreSQLAgregarTelefono frame = new PostgreSQLAgregarTelefono();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonAgregarTelefonoActionPerformed
 
     private void BotonConsultarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultarUsuarioActionPerformed
-        OracleConsultarUsuario frame = new OracleConsultarUsuario();
+        PostgreSQLConsultarUsuario frame = new PostgreSQLConsultarUsuario();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonConsultarUsuarioActionPerformed

@@ -92,6 +92,7 @@ public class OracleSubastarItem extends javax.swing.JFrame {
         LabelSubastarComentario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Oracle");
 
         LabelSubastar.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         LabelSubastar.setText("Subastar Item");

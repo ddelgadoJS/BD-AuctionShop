@@ -29,12 +29,10 @@ public class PostgreSQLSubastasGanadoras extends javax.swing.JFrame {
         initComponents();
         
         DefaultListModel model = new DefaultListModel();
-        //model.addElement("hola");
         
-        // Agrega al combobox todos los alias de los usuarios.
         ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
         
-        String ALIASv = OraclePantallaInicial.aliasUsuario;
+        String ALIASv = PostgreSQLPantallaInicial.aliasUsuario;
         
         PostgreSQLConnection con_ = new PostgreSQLConnection();
         String columnName = "ft_get_subastas_ganadoras_usuario"; // Name of the returned column.
@@ -71,6 +69,7 @@ public class PostgreSQLSubastasGanadoras extends javax.swing.JFrame {
         SpinnerSubastasRealizadasCalificacion = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         LabelSubastasRealizadasComentario.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         LabelSubastasRealizadasComentario.setText("Comentario:");
@@ -170,7 +169,7 @@ public class PostgreSQLSubastasGanadoras extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonSubastasRealizadasLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSubastasRealizadasLogOutActionPerformed
-        OraclePantallaInicial frame = new OraclePantallaInicial();
+        PostgreSQLPantallaInicial frame = new PostgreSQLPantallaInicial();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonSubastasRealizadasLogOutActionPerformed
@@ -178,38 +177,34 @@ public class PostgreSQLSubastasGanadoras extends javax.swing.JFrame {
     private void BotonSubastasRealizadasAgregarComentarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSubastasRealizadasAgregarComentarioActionPerformed
         ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
         
-        String[] parts = ListSubastasRealizadas.getSelectedValue().split(", ");
+        String[] parts = ListSubastasRealizadas.getSelectedValue().split(",");
         
         String IDSUBASTAv = parts[0]; // Gets index of auction.
         String COMENTARIOCOMPRADORv = EntrySubastasRealizadasComentario.getText();
         String CALIFICACIONSUBASTAv = SpinnerSubastasRealizadasCalificacion.getValue().toString();
         
         // Creating connection.
-        OracleConnection con_ = new OracleConnection();
-        Connection con = con_.CrearConexion();
-        // The SP owner must be wrote before the SP name.
-        rowsList = con_.EjecutarSP("SP_AGREGAR_COMENTARIO_COMPRADOR(IDSUBASTAv=>" + IDSUBASTAv + ",CALIFICACIONv=>" + CALIFICACIONSUBASTAv + ",COMENTARIOCOMPRADORv=>'" + COMENTARIOCOMPRADORv + "')", con);
+        PostgreSQLConnection con_ = new PostgreSQLConnection();
+        String columnName = "ft_agregar_comentario_comprador"; // Name of the returned column.
         
-        if (rowsList.get(0).toString().equals("1")) {
+        // The SP owner must be wrote before the SP name.
+        rowsList = con_.FunctionReturningInt("SELECT public.FT_AGREGAR_COMENTARIO_COMPRADOR(IDSUBASTAv:=" + IDSUBASTAv + 
+                "::INTEGER,CALIFICACIONv:=" + CALIFICACIONSUBASTAv +
+                "::SMALLINT,COMENTARIOCOMPRADORv:='" + COMENTARIOCOMPRADORv + "'::TEXT)", columnName);
+        
+        if (rowsList.get(0).equals("1")) {
             JOptionPane.showMessageDialog(this, "Comentario Agregado");
-        } else if (rowsList.get(0).toString().equals("0")) {
+        } else if (rowsList.get(0).equals("0")) {
             JOptionPane.showMessageDialog(this, "Subasta no encontrada.");
         } else {
             JOptionPane.showMessageDialog(this, "Error");
         }
         
-        // Close connection.
-        try {
-            con_.CerrarConexion(con);
-        } catch (SQLException ex) {
-            Logger.getLogger(OraclePantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
-        }  
-        
         JOptionPane.showMessageDialog(this, "Comentario Agregado");
     }//GEN-LAST:event_BotonSubastasRealizadasAgregarComentarioActionPerformed
 
     private void BotonSubastasRealizadasVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSubastasRealizadasVolverActionPerformed
-        OraclePantallaParticipante frame = new OraclePantallaParticipante();
+        PostgreSQLPantallaParticipante frame = new PostgreSQLPantallaParticipante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonSubastasRealizadasVolverActionPerformed

@@ -72,6 +72,7 @@ public class PostgreSQLModificarUsuario extends javax.swing.JFrame {
         ComboBoxModificarAlias = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         LabelModificar.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         LabelModificar.setText("Modificar Usuario");
@@ -267,19 +268,19 @@ public class PostgreSQLModificarUsuario extends javax.swing.JFrame {
             showMessageDialog(null, "Alias no encontrado.");
         }
         
-        OraclePantallaAdmin frame = new OraclePantallaAdmin();
+        PostgreSQLPantallaAdmin frame = new PostgreSQLPantallaAdmin();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonActualizarActionPerformed
 
     private void BotonModificarLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonModificarLogOutActionPerformed
-        OraclePantallaInicial frame = new OraclePantallaInicial();
+        PostgreSQLPantallaInicial frame = new PostgreSQLPantallaInicial();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonModificarLogOutActionPerformed
 
     private void BotonCancelarModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCancelarModificarActionPerformed
-        OraclePantallaAdmin frame = new OraclePantallaAdmin();
+        PostgreSQLPantallaAdmin frame = new PostgreSQLPantallaAdmin();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonCancelarModificarActionPerformed

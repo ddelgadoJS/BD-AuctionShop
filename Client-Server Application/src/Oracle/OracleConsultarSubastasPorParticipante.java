@@ -62,6 +62,7 @@ public class OracleConsultarSubastasPorParticipante extends javax.swing.JFrame {
         LabelModificarAlias = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Oracle");
 
         BotonListarSubastasPPVolver.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         BotonListarSubastasPPVolver.setText("Volver");

@@ -63,6 +63,7 @@ public class OracleConsultarPujasPorParticipante extends javax.swing.JFrame {
         LabelPGPUAlias = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Oracle");
 
         BotonListarPGPUVolver.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         BotonListarPGPUVolver.setText("Volver");

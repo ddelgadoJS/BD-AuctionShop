@@ -58,6 +58,7 @@ public class PostgreSQLConsultarAdminPujasPorParticipante extends javax.swing.JF
         ComboBoxPGPUAliasAdmin = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         BotonListarPGPUVolverAdmin.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         BotonListarPGPUVolverAdmin.setText("Volver");
@@ -130,20 +131,20 @@ public class PostgreSQLConsultarAdminPujasPorParticipante extends javax.swing.JF
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                         .addComponent(LabelPGPUAliasAdmin)
                         .addComponent(ComboBoxPGPUAliasAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonListarPGPUVolverAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarPGPUVolverAdminActionPerformed
-        OracleConsultarUsuario frame = new OracleConsultarUsuario();
+        PostgreSQLConsultarUsuario frame = new PostgreSQLConsultarUsuario();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonListarPGPUVolverAdminActionPerformed
 
     private void BotonListarPGPULogOutAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarPGPULogOutAdminActionPerformed
-        OraclePantallaInicial frame = new OraclePantallaInicial();
+        PostgreSQLPantallaInicial frame = new PostgreSQLPantallaInicial();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonListarPGPULogOutAdminActionPerformed
@@ -157,7 +158,7 @@ public class PostgreSQLConsultarAdminPujasPorParticipante extends javax.swing.JF
         String ALIASCOMPRADOR = ComboBoxPGPUAliasAdmin.getSelectedItem().toString();
 
         PostgreSQLConnection con_ = new PostgreSQLConnection();
-        String columnName = "ft_pujasganadoras"; // Name of the returned column.
+        String columnName = "pujasganadoras"; // Name of the returned column.
         rowsList = con_.FunctionReturningString("SELECT public.PUJASGANADORAS (ALIASCOMPRADORv:='" + ALIASCOMPRADOR + "'::TEXT)", columnName);
 
         model.removeAllElements();

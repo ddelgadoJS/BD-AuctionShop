@@ -65,6 +65,7 @@ public class PostgreSQLPujar extends javax.swing.JFrame {
         BotonPujarCancelar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         LabelPujar.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         LabelPujar.setText("Pujar");
@@ -176,7 +177,7 @@ public class PostgreSQLPujar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonPujarLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPujarLogOutActionPerformed
-        OraclePantallaInicial frame = new OraclePantallaInicial();
+        PostgreSQLPantallaInicial frame = new PostgreSQLPantallaInicial();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonPujarLogOutActionPerformed
@@ -184,13 +185,11 @@ public class PostgreSQLPujar extends javax.swing.JFrame {
     private void BotonPujarPujarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPujarPujarActionPerformed
         ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
         
-        String ALIASCOMPRADORv = OraclePantallaInicial.aliasUsuario;
-        String INCREMENTOMINIMOv = OraclePantallaInicial.incrementominimo;
-        String PORCENTAJEMEJORAv = OraclePantallaInicial.porcentajemejora;
+        String ALIASCOMPRADORv = PostgreSQLPantallaInicial.aliasUsuario;
+        String INCREMENTOMINIMOv = PostgreSQLPantallaInicial.incrementominimo;
+        String PORCENTAJEMEJORAv = PostgreSQLPantallaInicial.porcentajemejora;
         String IDSUBASTAv = Integer.toString(idSubasta);
         String MONTOv = SpinnerPujarPuja.getValue().toString();
-        
-        ALIASCOMPRADORv = "imattschas2r";
         
         PostgreSQLConnection con_ = new PostgreSQLConnection();
         String columnName = "pujar"; // Name of the returned column.
@@ -204,13 +203,13 @@ public class PostgreSQLPujar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Puja realizada con éxito");
         }
 
-        OraclePantallaParticipante frame = new OraclePantallaParticipante();
+        PostgreSQLPantallaParticipante frame = new PostgreSQLPantallaParticipante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonPujarPujarActionPerformed
 
     private void BotonPujarCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPujarCancelarActionPerformed
-        OraclePantallaParticipante frame = new OraclePantallaParticipante();
+        PostgreSQLPantallaParticipante frame = new PostgreSQLPantallaParticipante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonPujarCancelarActionPerformed

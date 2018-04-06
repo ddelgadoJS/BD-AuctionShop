@@ -34,6 +34,7 @@ public class OracleConsultarUsuarioParticipante extends javax.swing.JFrame {
         BotonConsultarPULogOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Oracle");
 
         BotonConsultarPUListarHistorialPujas.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         BotonConsultarPUListarHistorialPujas.setText("Historial Pujas Ganadoras");

@@ -80,6 +80,7 @@ public class PostgreSQLConsultarSubastasParticipante extends javax.swing.JFrame 
         BotonListarVerPujas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         LabelListarSubastas.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         LabelListarSubastas.setText("Listar Subastas");
@@ -211,7 +212,7 @@ public class PostgreSQLConsultarSubastasParticipante extends javax.swing.JFrame 
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonListarSLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarSLogOutActionPerformed
-        OraclePantallaInicial frame = new OraclePantallaInicial();
+        PostgreSQLPantallaInicial frame = new PostgreSQLPantallaInicial();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonListarSLogOutActionPerformed
@@ -230,7 +231,7 @@ public class PostgreSQLConsultarSubastasParticipante extends javax.swing.JFrame 
         String columnName = "ft_get_ind_subcategoria"; // Name of the returned column.
 
         // Obtener índice subcategoría.
-        String query = "SELECT public.FT_GET_IND_SUBCATEGORIA(IDCATEGORIAv:=" + IDCATEGORIAv + "::INTEGER,DESCRIPCIONSUBCATEGORIAv=>'" + DESCRIPCIONSUBCATEGORIAv + "'::TEXT)";
+        String query = "SELECT public.FT_GET_IND_SUBCATEGORIA(IDCATEGORIAv:=" + IDCATEGORIAv + "::INTEGER,DESCRIPCIONSUBCATEGORIAv:='" + DESCRIPCIONSUBCATEGORIAv + "'::TEXT)";
         rowsList = con_.FunctionReturningInt(query, columnName);
         String IDSUBCATEGORIAv = rowsList.get(0);
         
@@ -262,7 +263,7 @@ public class PostgreSQLConsultarSubastasParticipante extends javax.swing.JFrame 
     }//GEN-LAST:event_BotonListarSPujarActionPerformed
 
     private void BotonListarSCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarSCancelarActionPerformed
-        OraclePantallaParticipante frame = new OraclePantallaParticipante();
+        PostgreSQLPantallaParticipante frame = new PostgreSQLPantallaParticipante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonListarSCancelarActionPerformed

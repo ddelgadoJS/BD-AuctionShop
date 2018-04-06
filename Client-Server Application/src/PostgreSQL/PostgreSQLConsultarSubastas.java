@@ -79,6 +79,7 @@ public class PostgreSQLConsultarSubastas extends javax.swing.JFrame {
         BotonConsultarVerPuja = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         LabelConsultarS.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         LabelConsultarS.setText("Consultar Subastas");

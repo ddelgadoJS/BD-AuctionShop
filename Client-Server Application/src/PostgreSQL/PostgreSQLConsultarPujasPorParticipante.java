@@ -58,6 +58,7 @@ public class PostgreSQLConsultarPujasPorParticipante extends javax.swing.JFrame 
         LabelPGPUAlias = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         BotonListarPGPUVolver.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         BotonListarPGPUVolver.setText("Volver");
@@ -136,13 +137,13 @@ public class PostgreSQLConsultarPujasPorParticipante extends javax.swing.JFrame 
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonListarPGPUVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarPGPUVolverActionPerformed
-        OracleConsultarUsuarioParticipante frame = new OracleConsultarUsuarioParticipante();
+        PostgreSQLConsultarUsuarioParticipante frame = new PostgreSQLConsultarUsuarioParticipante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonListarPGPUVolverActionPerformed
 
     private void BotonListarPGPULogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarPGPULogOutActionPerformed
-        OraclePantallaInicial frame = new OraclePantallaInicial();
+        PostgreSQLPantallaInicial frame = new PostgreSQLPantallaInicial();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonListarPGPULogOutActionPerformed
@@ -156,7 +157,7 @@ public class PostgreSQLConsultarPujasPorParticipante extends javax.swing.JFrame 
         String ALIASCOMPRADOR = ComboBoxPGPUAlias.getSelectedItem().toString();
 
         PostgreSQLConnection con_ = new PostgreSQLConnection();
-        String columnName = "ft_pujasganadoras"; // Name of the returned column.
+        String columnName = "pujasganadoras"; // Name of the returned column.
         rowsList = con_.FunctionReturningString("SELECT public.PUJASGANADORAS (ALIASCOMPRADORv:='" + ALIASCOMPRADOR + "'::TEXT)", columnName);
 
         model.removeAllElements();

@@ -3,6 +3,7 @@
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="title" type="java.lang.String" value="PostgreSQL"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -42,8 +43,7 @@
                                   <Component id="SpinnerParametrosIncremento" min="-2" pref="99" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="LabelParametrosPorcentaje" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                                   <Component id="SpinnerParametrosPorcentaje" min="-2" pref="99" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -58,6 +58,13 @@
               <Component id="BotonParametrosLogOut" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="235" max="-2" attributes="0"/>
+                  <Component id="LabelParametrosPorcentaje1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="360" max="32767" attributes="0"/>
+              </Group>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -69,10 +76,7 @@
                   <Component id="LabelModificarParametros" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="LabelParametrosPorcentaje" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="SpinnerParametrosPorcentaje" alignment="3" min="-2" pref="35" max="-2" attributes="0"/>
-              </Group>
+              <Component id="SpinnerParametrosPorcentaje" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="LabelParametrosIncremento" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -82,7 +86,14 @@
               <Component id="BotonParametrosCancelar" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="BotonParametrosAceptar" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
+              <EmptySpace pref="84" max="32767" attributes="0"/>
+          </Group>
+          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="142" max="-2" attributes="0"/>
+                  <Component id="LabelParametrosPorcentaje1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="321" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -98,14 +109,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonParametrosLogOutActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="LabelParametrosPorcentaje">
-      <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tw Cen MT" size="24" style="0"/>
-        </Property>
-        <Property name="text" type="java.lang.String" value="Porcentaje:"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="BotonParametrosAceptar">
       <Properties>
@@ -160,6 +163,14 @@
           <Font name="Tw Cen MT" size="36" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Modificar Parametros"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="LabelParametrosPorcentaje1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tw Cen MT" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Porcentaje:"/>
       </Properties>
     </Component>
   </SubComponents>

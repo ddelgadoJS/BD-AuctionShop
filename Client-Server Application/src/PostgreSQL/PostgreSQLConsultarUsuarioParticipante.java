@@ -36,6 +36,7 @@ public class PostgreSQLConsultarUsuarioParticipante extends javax.swing.JFrame {
         BotonConsultarPULogOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         BotonConsultarPUListarHistorialPujas.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         BotonConsultarPUListarHistorialPujas.setText("Historial Pujas Ganadoras");
@@ -112,25 +113,25 @@ public class PostgreSQLConsultarUsuarioParticipante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonConsultarPULogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultarPULogOutActionPerformed
-        OraclePantallaInicial frame = new OraclePantallaInicial();
+        PostgreSQLPantallaInicial frame = new PostgreSQLPantallaInicial();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonConsultarPULogOutActionPerformed
 
     private void BotonConsultaPUCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultaPUCancelarActionPerformed
-        OraclePantallaParticipante frame = new OraclePantallaParticipante();
+        PostgreSQLPantallaParticipante frame = new PostgreSQLPantallaParticipante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonConsultaPUCancelarActionPerformed
 
     private void BotonConsultarPUListarHistorialSubastasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultarPUListarHistorialSubastasActionPerformed
-        OracleConsultarSubastasPorParticipante frame = new OracleConsultarSubastasPorParticipante();
+        PostgreSQLConsultarSubastasPorParticipante frame = new PostgreSQLConsultarSubastasPorParticipante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonConsultarPUListarHistorialSubastasActionPerformed
 
     private void BotonConsultarPUListarHistorialPujasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonConsultarPUListarHistorialPujasActionPerformed
-        OracleConsultarPujasPorParticipante frame = new OracleConsultarPujasPorParticipante();
+        PostgreSQLConsultarPujasPorParticipante frame = new PostgreSQLConsultarPujasPorParticipante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonConsultarPUListarHistorialPujasActionPerformed

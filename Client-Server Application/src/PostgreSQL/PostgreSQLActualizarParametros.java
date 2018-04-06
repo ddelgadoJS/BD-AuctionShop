@@ -33,15 +33,16 @@ public class PostgreSQLActualizarParametros extends javax.swing.JFrame {
     private void initComponents() {
 
         BotonParametrosLogOut = new javax.swing.JButton();
-        LabelParametrosPorcentaje = new javax.swing.JLabel();
         BotonParametrosAceptar = new javax.swing.JButton();
         SpinnerParametrosIncremento = new javax.swing.JSpinner();
         SpinnerParametrosPorcentaje = new javax.swing.JSpinner();
         BotonParametrosCancelar = new javax.swing.JButton();
         LabelParametrosIncremento = new javax.swing.JLabel();
         LabelModificarParametros = new javax.swing.JLabel();
+        LabelParametrosPorcentaje1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         BotonParametrosLogOut.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         BotonParametrosLogOut.setText("Log Out");
@@ -50,9 +51,6 @@ public class PostgreSQLActualizarParametros extends javax.swing.JFrame {
                 BotonParametrosLogOutActionPerformed(evt);
             }
         });
-
-        LabelParametrosPorcentaje.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
-        LabelParametrosPorcentaje.setText("Porcentaje:");
 
         BotonParametrosAceptar.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         BotonParametrosAceptar.setText("Aceptar");
@@ -81,6 +79,9 @@ public class PostgreSQLActualizarParametros extends javax.swing.JFrame {
         LabelModificarParametros.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         LabelModificarParametros.setText("Modificar Parametros");
 
+        LabelParametrosPorcentaje1.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
+        LabelParametrosPorcentaje1.setText("Porcentaje:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -101,8 +102,7 @@ public class PostgreSQLActualizarParametros extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(SpinnerParametrosIncremento, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(LabelParametrosPorcentaje)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGap(118, 118, 118)
                                     .addComponent(SpinnerParametrosPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(136, 136, 136))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -110,6 +110,11 @@ public class PostgreSQLActualizarParametros extends javax.swing.JFrame {
                         .addGap(93, 93, 93)))
                 .addComponent(BotonParametrosLogOut)
                 .addContainerGap())
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(235, 235, 235)
+                    .addComponent(LabelParametrosPorcentaje1)
+                    .addContainerGap(360, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,9 +124,7 @@ public class PostgreSQLActualizarParametros extends javax.swing.JFrame {
                     .addComponent(BotonParametrosLogOut, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelModificarParametros))
                 .addGap(76, 76, 76)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(LabelParametrosPorcentaje)
-                    .addComponent(SpinnerParametrosPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(SpinnerParametrosPorcentaje, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(LabelParametrosIncremento)
@@ -130,7 +133,12 @@ public class PostgreSQLActualizarParametros extends javax.swing.JFrame {
                 .addComponent(BotonParametrosCancelar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BotonParametrosAceptar)
-                .addGap(195, 195, 195))
+                .addContainerGap(84, Short.MAX_VALUE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(142, 142, 142)
+                    .addComponent(LabelParametrosPorcentaje1)
+                    .addContainerGap(321, Short.MAX_VALUE)))
         );
 
         pack();
@@ -201,7 +209,7 @@ public class PostgreSQLActualizarParametros extends javax.swing.JFrame {
     private javax.swing.JButton BotonParametrosLogOut;
     private javax.swing.JLabel LabelModificarParametros;
     private javax.swing.JLabel LabelParametrosIncremento;
-    private javax.swing.JLabel LabelParametrosPorcentaje;
+    private javax.swing.JLabel LabelParametrosPorcentaje1;
     private javax.swing.JSpinner SpinnerParametrosIncremento;
     private javax.swing.JSpinner SpinnerParametrosPorcentaje;
     // End of variables declaration//GEN-END:variables

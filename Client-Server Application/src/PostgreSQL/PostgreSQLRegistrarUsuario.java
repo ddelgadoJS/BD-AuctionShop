@@ -64,6 +64,7 @@ public class PostgreSQLRegistrarUsuario extends javax.swing.JFrame {
         ComboBoxRegistrarTipoUsuario = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         jLabel1.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         jLabel1.setText("Registrar Usuario");
@@ -297,7 +298,7 @@ public class PostgreSQLRegistrarUsuario extends javax.swing.JFrame {
             showMessageDialog(null, "Error: otro usuario registrado tiene el alias o la cédula ingresada.");
         }
         
-        OraclePantallaAdmin frame = new OraclePantallaAdmin();
+        PostgreSQLPantallaAdmin frame = new PostgreSQLPantallaAdmin();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonRegistrarActionPerformed
@@ -307,13 +308,13 @@ public class PostgreSQLRegistrarUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_ComboBoxRegistrarTipoUsuarioActionPerformed
 
     private void BotonCancelarRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCancelarRegistroActionPerformed
-        OraclePantallaAdmin frame = new OraclePantallaAdmin();
+        PostgreSQLPantallaAdmin frame = new PostgreSQLPantallaAdmin();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonCancelarRegistroActionPerformed
 
     private void BotonRegistrarLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonRegistrarLogOutActionPerformed
-        OraclePantallaInicial frame = new OraclePantallaInicial();
+        PostgreSQLPantallaInicial frame = new PostgreSQLPantallaInicial();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonRegistrarLogOutActionPerformed

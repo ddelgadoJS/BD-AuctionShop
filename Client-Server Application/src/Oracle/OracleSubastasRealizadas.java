@@ -78,6 +78,7 @@ public class OracleSubastasRealizadas extends javax.swing.JFrame {
         BotonSubastasFinalizadasMarcarCompletada = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Oracle");
 
         ListSubastasFinalizadas.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
         jScrollPane1.setViewportView(ListSubastasFinalizadas);

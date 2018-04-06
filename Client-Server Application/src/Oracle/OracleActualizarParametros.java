@@ -41,6 +41,7 @@ public class OracleActualizarParametros extends javax.swing.JFrame {
         LabelModificarParametros = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Oracle");
 
         BotonParametrosLogOut.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         BotonParametrosLogOut.setText("Log Out");

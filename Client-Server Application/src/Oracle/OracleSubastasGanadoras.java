@@ -76,6 +76,7 @@ public class OracleSubastasGanadoras extends javax.swing.JFrame {
         SpinnerSubastasRealizadasCalificacion = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Oracle");
 
         LabelSubastasRealizadasComentario.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         LabelSubastasRealizadasComentario.setText("Comentario:");

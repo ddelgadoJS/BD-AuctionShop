@@ -74,6 +74,7 @@ public class PostgreSQLSubastasRealizadas extends javax.swing.JFrame {
         BotonSubastasFinalizadasMarcarCompletada = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         ListSubastasFinalizadas.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
         jScrollPane1.setViewportView(ListSubastasFinalizadas);
@@ -182,13 +183,13 @@ public class PostgreSQLSubastasRealizadas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonSubastasFinalizadasVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSubastasFinalizadasVolverActionPerformed
-        OraclePantallaParticipante frame = new OraclePantallaParticipante();
+        PostgreSQLPantallaParticipante frame = new PostgreSQLPantallaParticipante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonSubastasFinalizadasVolverActionPerformed
 
     private void BotonSubastasFinalizadasLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSubastasFinalizadasLogOutActionPerformed
-        OraclePantallaInicial frame = new OraclePantallaInicial();
+        PostgreSQLPantallaInicial frame = new PostgreSQLPantallaInicial();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonSubastasFinalizadasLogOutActionPerformed

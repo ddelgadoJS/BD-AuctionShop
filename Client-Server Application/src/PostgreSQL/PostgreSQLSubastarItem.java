@@ -28,7 +28,7 @@ import static javax.swing.JOptionPane.showMessageDialog;
  */
 public class PostgreSQLSubastarItem extends javax.swing.JFrame {
 
-    public static String PostgreSQLPhotoPath;
+    public static String PostgreSQLPhotoPath = "";
     /**
      * Creates new form SubastarItem
      */
@@ -97,6 +97,7 @@ public class PostgreSQLSubastarItem extends javax.swing.JFrame {
         LabelSubastarComentario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         LabelSubastar.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         LabelSubastar.setText("Subastar Item");
@@ -199,15 +200,11 @@ public class PostgreSQLSubastarItem extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(LabelSubastarDescripcion)
-                                            .addComponent(LabelSubastarPrecio)
-                                            .addComponent(LabelSubastarModoEntrega))
-                                        .addGap(35, 35, 35))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(LabelSubastarFechaLimite)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                    .addComponent(LabelSubastarDescripcion)
+                                    .addComponent(LabelSubastarPrecio)
+                                    .addComponent(LabelSubastarModoEntrega)
+                                    .addComponent(LabelSubastarFechaLimite))
+                                .addGap(35, 35, 35)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(EntrySubastaModoDeEntrega, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
                                     .addComponent(EntrySubastaFechaLimite)
@@ -302,7 +299,7 @@ public class PostgreSQLSubastarItem extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonSubastarLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSubastarLogOutActionPerformed
-        OraclePantallaInicial frame = new OraclePantallaInicial();
+        PostgreSQLPantallaInicial frame = new PostgreSQLPantallaInicial();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonSubastarLogOutActionPerformed
@@ -320,6 +317,8 @@ public class PostgreSQLSubastarItem extends javax.swing.JFrame {
         String DESCRIPCIONSUBCATEGORIAv = ComboBoxSubastarSubcategoria.getSelectedItem().toString();
         String COMENTARIOVENDEDORv = EntrySubastaComentario.getText();
         String FOTOv = PostgreSQLPhotoPath;
+        
+        if (PostgreSQLPhotoPath.isEmpty()) FOTOv = "NULL";
         
         OracleConnection con_ = new OracleConnection();
         Connection con = con_.CrearConexion();
@@ -348,13 +347,13 @@ public class PostgreSQLSubastarItem extends javax.swing.JFrame {
             Logger.getLogger(OraclePantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        OraclePantallaParticipante frame = new OraclePantallaParticipante();
+        PostgreSQLPantallaParticipante frame = new PostgreSQLPantallaParticipante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonSubastarActionPerformed
 
     private void BotonSubastarCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonSubastarCancelarActionPerformed
-        OraclePantallaParticipante frame = new OraclePantallaParticipante();
+        PostgreSQLPantallaParticipante frame = new PostgreSQLPantallaParticipante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonSubastarCancelarActionPerformed

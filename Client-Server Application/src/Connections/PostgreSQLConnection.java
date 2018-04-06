@@ -75,7 +75,7 @@ public class PostgreSQLConnection {
     }
     
     public Connection CrearConexion(String user, String pass){
-        String url = "jdbc:postgresql://localhost:5432/test01";
+        String url = "jdbc:postgresql://localhost:5432/test02";
 
         try{  
             Class.forName("org.postgresql.Driver");
@@ -96,7 +96,7 @@ public class PostgreSQLConnection {
     public static ArrayList Conexion(String query){
         ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
         
-        String url = "jdbc:postgresql://localhost:5432/test01";
+        String url = "jdbc:postgresql://localhost:5432/test02";
         String password = "1234";
         try{
             Class.forName("org.postgresql.Driver");

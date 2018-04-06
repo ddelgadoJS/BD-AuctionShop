@@ -61,6 +61,7 @@ public class PostgreSQLAgregarTelefono extends javax.swing.JFrame {
         ComboBoxModificarAlias = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         LabelAgregarTelefono.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         LabelAgregarTelefono.setText("Agregar Nuevo Telefono");
@@ -188,7 +189,7 @@ public class PostgreSQLAgregarTelefono extends javax.swing.JFrame {
         if (rowsList.get(0).equals("1")) {
             showMessageDialog(null, "Teléfono agregado.");
             
-            OraclePantallaAdmin frame = new OraclePantallaAdmin();
+            PostgreSQLPantallaAdmin frame = new PostgreSQLPantallaAdmin();
             frame.setVisible(true);
             this.setVisible(false);
         } else if (rowsList.get(0).equals("0")) {
@@ -197,13 +198,13 @@ public class PostgreSQLAgregarTelefono extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonAgregarAgregarActionPerformed
 
     private void BotonAgregarFinalizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarFinalizarActionPerformed
-        OraclePantallaAdmin frame = new OraclePantallaAdmin();
+        PostgreSQLPantallaAdmin frame = new PostgreSQLPantallaAdmin();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonAgregarFinalizarActionPerformed
 
     private void BotonAgregarLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarLogOutActionPerformed
-        OraclePantallaInicial frame = new OraclePantallaInicial();
+        PostgreSQLPantallaInicial frame = new PostgreSQLPantallaInicial();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonAgregarLogOutActionPerformed

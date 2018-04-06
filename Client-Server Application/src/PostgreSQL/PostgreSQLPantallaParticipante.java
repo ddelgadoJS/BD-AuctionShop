@@ -38,6 +38,7 @@ public class PostgreSQLPantallaParticipante extends javax.swing.JFrame {
         BotonParticipanteSubastasRealizadasUsuario = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("PostgreSQL");
 
         LabelParticipante.setFont(new java.awt.Font("Tw Cen MT", 0, 36)); // NOI18N
         LabelParticipante.setText("Participante");
@@ -141,37 +142,37 @@ public class PostgreSQLPantallaParticipante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonParticipanteListarSubastasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParticipanteListarSubastasActionPerformed
-        OracleConsultarSubastasParticipante frame = new OracleConsultarSubastasParticipante();
+        PostgreSQLConsultarSubastasParticipante frame = new PostgreSQLConsultarSubastasParticipante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonParticipanteListarSubastasActionPerformed
 
     private void BotonParticipanteSubastarItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParticipanteSubastarItemActionPerformed
-        OracleSubastarItem frame = new OracleSubastarItem();
+        PostgreSQLSubastarItem frame = new PostgreSQLSubastarItem();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonParticipanteSubastarItemActionPerformed
 
     private void BotonParticipanteConsultarUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParticipanteConsultarUsuarioActionPerformed
-        OracleConsultarUsuarioParticipante frame = new OracleConsultarUsuarioParticipante();
+        PostgreSQLConsultarUsuarioParticipante frame = new PostgreSQLConsultarUsuarioParticipante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonParticipanteConsultarUsuarioActionPerformed
 
     private void BotonParticipanteLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParticipanteLogOutActionPerformed
-        OraclePantallaInicial frame = new OraclePantallaInicial();
+        PostgreSQLPantallaInicial frame = new PostgreSQLPantallaInicial();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonParticipanteLogOutActionPerformed
 
     private void BotonParticipanteCSubastasGanadasUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParticipanteCSubastasGanadasUsuarioActionPerformed
-        OracleSubastasRealizadas frame = new OracleSubastasRealizadas();
+        PostgreSQLSubastasRealizadas frame = new PostgreSQLSubastasRealizadas();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonParticipanteCSubastasGanadasUsuarioActionPerformed
 
     private void BotonParticipanteSubastasRealizadasUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonParticipanteSubastasRealizadasUsuarioActionPerformed
-        OracleSubastasGanadoras frame = new OracleSubastasGanadoras();
+        PostgreSQLSubastasGanadoras frame = new PostgreSQLSubastasGanadoras();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BotonParticipanteSubastasRealizadasUsuarioActionPerformed
