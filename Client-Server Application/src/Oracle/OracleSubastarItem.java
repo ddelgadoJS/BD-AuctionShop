@@ -321,8 +321,8 @@ public class OracleSubastarItem extends javax.swing.JFrame {
         String IDSUBCATEGORIAv = rowsList.get(0);
         
         query = "SP_SUBASTAR_ITEM(ALIASVENDEDORv=>'" + ALIASVENDEDORv + "',PRECIOINICIALv=>" + PRECIOINICIALv + 
-            "',DESCRIPCIONITEMv=>'" + DESCRIPCIONITEMv + "',MODOENTREGAv=>'" + MODOENTREGAv + "',COMENTARIOVENDEDORv=>'" + COMENTARIOVENDEDORv +
-            "',FECHAFINv=>'" + FECHAFINv + "',HORAFINv=>'" + HORAFINv + "',IDSUBCATEGORIAv=>" + IDSUBCATEGORIAv + ",FOTOv=>" + FOTOv + ")";
+            ",DESCRIPCIONITEMv=>'" + DESCRIPCIONITEMv + "',MODOENTREGAv=>'" + MODOENTREGAv + "',COMENTARIOVENDEDORv=>'" + COMENTARIOVENDEDORv +
+            "',FECHAFINv=>'" + FECHAFINv + "',HORAFINv=>'" + HORAFINv + "',IDSUBCATEGORIAv=>" + IDSUBCATEGORIAv + ",FOTOv=>'" + FOTOv + "')";
  
         rowsList = con_.EjecutarSP(query, con); // 1 : success.
         
@@ -363,23 +363,26 @@ public class OracleSubastarItem extends javax.swing.JFrame {
     }//GEN-LAST:event_BotonAgregarImagenActionPerformed
 
     private void ComboBoxSubastarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxSubastarCategoriaActionPerformed
-        // Agrega al combobox todas las categorías
         ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
         
-        
+        // Gets the selected item index + 1, because it starts at 0 and at the DB starts at 1.
         String indCategoria = Integer.toString(ComboBoxSubastarCategoria.getSelectedIndex() + 1);
         
+        // Opens connection to Oracle DB.
         OracleConnection con_ = new OracleConnection();
         Connection con = con_.CrearConexion();
+        
+        // Gets all the subcategories of the selected category.
         rowsList = con_.EjecutarSP("SP_SELECT_SUBCATEGORIAS (IDCATEGORIAv=>" + indCategoria + ")", con);
         
         ComboBoxSubastarSubcategoria.removeAllItems();
         
-        for (String user: rowsList) {
-            ComboBoxSubastarSubcategoria.addItem(user);
+        // Adds each element of the rowsList into the combobox.
+        for (String subcategoria: rowsList) {
+            ComboBoxSubastarSubcategoria.addItem(subcategoria);
         }
         
-        // Close connection.
+        // Closes connection to Oracle DB.
         try {
             con_.CerrarConexion(con);
         } catch (SQLException ex) {

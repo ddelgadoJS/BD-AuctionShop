@@ -6,6 +6,8 @@
 package Oracle;
 
 import Connections.OracleConnection;
+import Connections.PostgreSQLConnection;
+import PostgreSQL.PostgreSQLPantallaInicial;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -160,14 +162,16 @@ public class OraclePantallaInicial extends javax.swing.JFrame {
         String usrPassword = parts[1];
         String usrType = parts[2];
         
+        System.out.println(usrType);
+        
         if (usrAlias.equals("1") && usrPassword.equals("1")) { // Correct alias and password.
             OraclePantallaInicial.aliasUsuario = USR; // Sets the user alias to be used on other screens.
             
-            if (usrType.equals("ADMINISTRADOR")) {
+            if (usrType.equals("ADMINISTRADOR") || usrType.equals("Administrador") || usrType.equals("administrador")) {
                 OraclePantallaAdmin frame = new OraclePantallaAdmin();
                 frame.setVisible(true);
                 this.setVisible(false);
-            } else if (usrType.equals("PARTICIPANTE")) {
+            } else if (usrType.equals("PARTICIPANTE") || usrType.equals("Participante") || usrType.equals("participante")) {
                 OraclePantallaParticipante frame = new OraclePantallaParticipante();
                 frame.setVisible(true);
                 this.setVisible(false);
@@ -184,6 +188,23 @@ public class OraclePantallaInicial extends javax.swing.JFrame {
         // Close connection.
         try {
             con_.CerrarConexion(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(OraclePantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        // Update Oracle system parameters
+        OracleConnection Oraclecon_ = new OracleConnection();
+        Connection Oraclecon_2 = Oraclecon_.CrearConexion();
+        rowsList = Oraclecon_.EjecutarSP("SP_SELECT_PARAMETROS", Oraclecon_2);
+        
+        String[] parts2 = rowsList.get(0).split(", ");
+        
+        OraclePantallaInicial.incrementominimo = parts2[0];
+        OraclePantallaInicial.porcentajemejora = (Float.valueOf(parts2[1])).toString();       
+        
+        // Close connection.
+        try {
+            Oraclecon_.CerrarConexion(con);
         } catch (SQLException ex) {
             Logger.getLogger(OraclePantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
         }

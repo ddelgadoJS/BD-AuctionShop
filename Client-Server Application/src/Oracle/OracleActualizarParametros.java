@@ -5,6 +5,12 @@
  */
 package Oracle;
 
+import Connections.OracleConnection;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -146,6 +152,21 @@ public class OracleActualizarParametros extends javax.swing.JFrame {
         OraclePantallaInicial.incrementominimo = String.valueOf(SpinnerParametrosIncremento.getValue());
         OraclePantallaInicial.porcentajemejora = String.valueOf(SpinnerParametrosPorcentaje.getValue());
         JOptionPane.showMessageDialog(this, "Parametros Actualizados");
+        
+         // Agrega al combobox todas las categorías
+        ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
+
+        OracleConnection con_ = new OracleConnection();
+        Connection con = con_.CrearConexion();
+        rowsList = con_.EjecutarSP("SP_ACTUALIZAR_PARAMETROS (INCREMENTOMINIMOv=>" + OraclePantallaInicial.incrementominimo + ",PORCENTAJEMEJORAv=>" + OraclePantallaInicial.porcentajemejora + ")", con);
+
+        // Close connection.
+        try {
+            con_.CerrarConexion(con);
+        } catch (SQLException ex) {
+            Logger.getLogger(OraclePantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
+        }       
+        
         OraclePantallaAdmin frame = new OraclePantallaAdmin();
         frame.setVisible(true);
         this.setVisible(false);

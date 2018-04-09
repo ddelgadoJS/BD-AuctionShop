@@ -269,11 +269,7 @@ public class OracleModificarUsuario extends javax.swing.JFrame {
         String usrType = parts[1]; // ADMINISTRADOR o PARTICIPANTE
         
         if (success.equals("1")) {
-            if (usrType.equals("ADMINISTRADOR")) {
-                showMessageDialog(null, "Administrador actualizado.");
-            } else if (usrType.equals("PARTICIPANTE")) {
-                showMessageDialog(null, "Participante actualizado.");
-            }
+            showMessageDialog(null, "Usuario actualizado.");
         } else if (success.equals("0")) {
             showMessageDialog(null, "Alias no encontrado.");
         }
