@@ -281,6 +281,10 @@ public class OracleRegistrarUsuario extends javax.swing.JFrame {
         
         if (rowsList.get(0).equals("1")) {
             showMessageDialog(null, "Usuario creado.");
+            
+            OraclePantallaAdmin frame = new OraclePantallaAdmin();
+            frame.setVisible(true);
+            this.setVisible(false);
         } else if (rowsList.get(0).equals("0")) {
             showMessageDialog(null, "Error: otro usuario registrado tiene el alias o la cédula ingresada.");
         }
@@ -291,9 +295,6 @@ public class OracleRegistrarUsuario extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(OraclePantallaInicial.class.getName()).log(Level.SEVERE, null, ex);
         }
-        OraclePantallaAdmin frame = new OraclePantallaAdmin();
-        frame.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_BotonRegistrarActionPerformed
 
     private void ComboBoxRegistrarTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxRegistrarTipoUsuarioActionPerformed

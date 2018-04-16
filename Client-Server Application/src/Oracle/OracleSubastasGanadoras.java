@@ -27,7 +27,6 @@ public class OracleSubastasGanadoras extends javax.swing.JFrame {
         initComponents();
         
         DefaultListModel model = new DefaultListModel();
-        //model.addElement("hola");
         
         // Agrega al combobox todos los alias de los usuarios.
         ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
@@ -42,7 +41,8 @@ public class OracleSubastasGanadoras extends javax.swing.JFrame {
         rowsList = con_.EjecutarSP(query, con);
         
         for (String subasta: rowsList) {
-            model.addElement(subasta);
+            String[] parts = subasta.split(", ");
+            model.addElement(parts[0] + ", Vendedor: " + parts[1] + ", Precio Final: $" + parts[2] + ", Fecha fin: " + parts[3] + ", Hora fin: " + parts[4]);
         }
         
         // Close connection.
@@ -139,14 +139,17 @@ public class OracleSubastasGanadoras extends javax.swing.JFrame {
                                     .addGap(327, 327, 327)
                                     .addComponent(BotonSubastasRealizadasAgregarComentario))
                                 .addComponent(LabelSubastasRealizadasComentario)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(EntrySubastasRealizadasComentario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(LabelSubastasRealizadasCalificacion)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(SpinnerSubastasRealizadasCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 116, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(62, 62, 62)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 663, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

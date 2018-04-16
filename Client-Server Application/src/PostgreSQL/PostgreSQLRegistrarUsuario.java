@@ -46,8 +46,6 @@ public class PostgreSQLRegistrarUsuario extends javax.swing.JFrame {
         EntryRegistrarCedula = new javax.swing.JTextField();
         EntryRegistrarTelefonoPrincipal = new javax.swing.JTextField();
         EntryRegistrarCorreo = new javax.swing.JTextField();
-        SpinnerRegistrarCalificacion = new javax.swing.JSpinner();
-        LabelRegistrarCalificacion = new javax.swing.JLabel();
         EntryRegistrarPassword = new javax.swing.JPasswordField();
         LabelRegistrarAlias = new javax.swing.JLabel();
         LabelRegistrarNombre = new javax.swing.JLabel();
@@ -88,13 +86,6 @@ public class PostgreSQLRegistrarUsuario extends javax.swing.JFrame {
         EntryRegistrarTelefonoPrincipal.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
 
         EntryRegistrarCorreo.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
-
-        SpinnerRegistrarCalificacion.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
-        SpinnerRegistrarCalificacion.setModel(new javax.swing.SpinnerNumberModel(5, 1, 5, 1));
-        SpinnerRegistrarCalificacion.setOpaque(false);
-
-        LabelRegistrarCalificacion.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
-        LabelRegistrarCalificacion.setText("Calificación:");
 
         EntryRegistrarPassword.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
 
@@ -183,7 +174,6 @@ public class PostgreSQLRegistrarUsuario extends javax.swing.JFrame {
                                 .addComponent(LabelRegistrarApellidos)
                                 .addComponent(LabelRegistrarNombre)
                                 .addComponent(LabelRegistrarAlias, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(LabelRegistrarCalificacion)
                                 .addComponent(LabelRegistrarCorreo)
                                 .addComponent(LabelRegistrarPassword)
                                 .addComponent(LabelRegistrarTipoUsuario))
@@ -197,7 +187,6 @@ public class PostgreSQLRegistrarUsuario extends javax.swing.JFrame {
                                 .addComponent(EntryRegistrarTelefonoPrincipal)
                                 .addComponent(EntryRegistrarCorreo)
                                 .addComponent(EntryRegistrarPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(SpinnerRegistrarCalificacion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(ComboBoxRegistrarTipoUsuario, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addGap(312, 312, 312))
         );
@@ -237,10 +226,6 @@ public class PostgreSQLRegistrarUsuario extends javax.swing.JFrame {
                     .addComponent(EntryRegistrarCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(LabelRegistrarCorreo))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(SpinnerRegistrarCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelRegistrarCalificacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LabelRegistrarPassword)
                     .addComponent(EntryRegistrarPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -248,11 +233,11 @@ public class PostgreSQLRegistrarUsuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(LabelRegistrarTipoUsuario)
                     .addComponent(ComboBoxRegistrarTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BotonRegistrar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(BotonCancelarRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -271,7 +256,7 @@ public class PostgreSQLRegistrarUsuario extends javax.swing.JFrame {
         String DIRECCIONv = EntryRegistrarDireccion.getText();
         String CEDULAv = EntryRegistrarCedula.getText();
         String CORREOv = EntryRegistrarCorreo.getText();
-        Integer CALIFICACIONv = (Integer)SpinnerRegistrarCalificacion.getValue();
+        Integer CALIFICACIONv = 5;
         String PASSWORDv = String.valueOf(EntryRegistrarPassword.getPassword());
         String NUMEROv = EntryRegistrarTelefonoPrincipal.getText();
         String TIPOUSUARIOv = ComboBoxRegistrarTipoUsuario.getSelectedItem().toString();
@@ -294,13 +279,13 @@ public class PostgreSQLRegistrarUsuario extends javax.swing.JFrame {
         
         if (rowsList.get(0).equals("1")) {
             showMessageDialog(null, "Usuario creado.");
+            
+            PostgreSQLPantallaAdmin frame = new PostgreSQLPantallaAdmin();
+            frame.setVisible(true);
+            this.setVisible(false);
         } else if (rowsList.get(0).equals("0")) {
             showMessageDialog(null, "Error: otro usuario registrado tiene el alias o la cédula ingresada.");
         }
-        
-        PostgreSQLPantallaAdmin frame = new PostgreSQLPantallaAdmin();
-        frame.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_BotonRegistrarActionPerformed
 
     private void ComboBoxRegistrarTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxRegistrarTipoUsuarioActionPerformed
@@ -372,7 +357,6 @@ public class PostgreSQLRegistrarUsuario extends javax.swing.JFrame {
     private javax.swing.JTextField EntryRegistrarTelefonoPrincipal;
     private javax.swing.JLabel LabelRegistrarAlias;
     private javax.swing.JLabel LabelRegistrarApellidos;
-    private javax.swing.JLabel LabelRegistrarCalificacion;
     private javax.swing.JLabel LabelRegistrarCedula;
     private javax.swing.JLabel LabelRegistrarCorreo;
     private javax.swing.JLabel LabelRegistrarDireccion;
@@ -380,7 +364,6 @@ public class PostgreSQLRegistrarUsuario extends javax.swing.JFrame {
     private javax.swing.JLabel LabelRegistrarPassword;
     private javax.swing.JLabel LabelRegistrarTelefono;
     private javax.swing.JLabel LabelRegistrarTipoUsuario;
-    private javax.swing.JSpinner SpinnerRegistrarCalificacion;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

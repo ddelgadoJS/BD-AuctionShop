@@ -98,23 +98,24 @@ public class PostgreSQLConsultarAdminPujasPorParticipante extends javax.swing.JF
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(LabelPGPUAliasAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(23, 23, 23)
                                 .addComponent(ComboBoxPGPUAliasAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 298, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(BotonListarPGPUVolverAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(120, 120, 120))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(LabelPujasGanadorasAdmin)
-                        .addGap(145, 145, 145)
-                        .addComponent(BotonListarPGPULogOutAdmin)
-                        .addContainerGap())))
+                                .addComponent(BotonListarPGPUVolverAdmin, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(120, 120, 120))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(LabelPujasGanadorasAdmin)
+                                .addGap(145, 145, 145)
+                                .addComponent(BotonListarPGPULogOutAdmin)
+                                .addContainerGap())))
+                    .addComponent(jScrollPane1)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -164,7 +165,12 @@ public class PostgreSQLConsultarAdminPujasPorParticipante extends javax.swing.JF
         model.removeAllElements();
 
         for (String puja: rowsList) {
-            model.addElement(puja);
+            String[] parts = puja.split(",");
+            if (parts.length > 3) {
+                model.addElement(parts[0] + ", Precio inicial: $" + parts[1] + ", Precio Final: $" + parts[2] + ", Comentario vendedor: " + parts[3]);
+            } else {
+                model.addElement(parts[0] + ", Precio inicial: $" + parts[1] + ", Precio Final: $" + parts[2]);
+            }
         }
 
         ListListarPGPUAdmin.removeAll();

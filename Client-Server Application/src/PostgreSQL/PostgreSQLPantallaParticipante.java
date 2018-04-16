@@ -68,7 +68,7 @@ public class PostgreSQLPantallaParticipante extends javax.swing.JFrame {
         });
 
         BotonParticipanteConsultarUsuario.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
-        BotonParticipanteConsultarUsuario.setText("Subastas Ganadas");
+        BotonParticipanteConsultarUsuario.setText("Consultar Usuario");
         BotonParticipanteConsultarUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonParticipanteConsultarUsuarioActionPerformed(evt);

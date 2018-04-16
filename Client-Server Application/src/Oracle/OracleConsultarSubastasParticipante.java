@@ -157,8 +157,18 @@ public class OracleConsultarSubastasParticipante extends javax.swing.JFrame {
                 .addGap(76, 76, 76)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(BotonListarSHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BotonListarSPujar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(BotonListarVerPujas, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(BotonListarSCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(191, 191, 191))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                     .addComponent(LabelSubastarSubcategoria)
                                     .addGap(34, 34, 34)
@@ -167,17 +177,8 @@ public class OracleConsultarSubastasParticipante extends javax.swing.JFrame {
                                     .addComponent(LabelSubastarCategoria)
                                     .addGap(64, 64, 64)
                                     .addComponent(ComboBoxSubastasCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(BotonListarSHistorial, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(BotonListarSPujar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(BotonListarVerPujas, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(BotonListarSCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(191, 191, 191))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 897, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -217,7 +218,6 @@ public class OracleConsultarSubastasParticipante extends javax.swing.JFrame {
 
     private void BotonListarSHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonListarSHistorialActionPerformed
         DefaultListModel model = new DefaultListModel();
-        //model.addElement("hola");
         
         // Agrega al combobox todos los alias de los usuarios.
         ArrayList<String> rowsList = new ArrayList<>(); // List to store the rows from the query.
@@ -227,7 +227,6 @@ public class OracleConsultarSubastasParticipante extends javax.swing.JFrame {
         
         OracleConnection con_ = new OracleConnection();
         Connection con = con_.CrearConexion();
-        rowsList = con_.EjecutarSP("SP_SELECT_USERS", con);
         
         // Obtener índice subcategoría.
         String query = "SP_GET_IND_SUBCATEGORIA(IDCATEGORIAv=>" + IDCATEGORIAv + ",DESCRIPCIONSUBCATEGORIAv=>'" + DESCRIPCIONSUBCATEGORIAv + "')";
@@ -239,7 +238,8 @@ public class OracleConsultarSubastasParticipante extends javax.swing.JFrame {
         rowsList = con_.EjecutarSP(query, con);
         
         for (String subasta: rowsList) {
-            model.addElement(subasta);
+            String[] parts = subasta.split(", ");
+            model.addElement(parts[0] + ", Vendedor: " + parts[1] + ", Precio Actual: $" + parts[2] + ", Fecha fin: " + parts[3] + ", Hora fin: " + parts[4]);
         }
         
         // Close connection.

@@ -24,24 +24,31 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="298" max="-2" attributes="0"/>
-              <Component id="LabelAdministrador" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="177" max="32767" attributes="0"/>
-              <Component id="BotonAdminLogOut" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="BotonRegistrarUsuario" max="32767" attributes="0"/>
-                  <Component id="BotonModificarUsuario" max="32767" attributes="0"/>
-                  <Component id="BotonConsultarUsuario" max="32767" attributes="0"/>
-                  <Component id="BotonListarSubastas" max="32767" attributes="0"/>
-                  <Component id="BotonAgregarTelefono" max="32767" attributes="0"/>
-                  <Component id="BotonActualizarParametros" alignment="0" min="-2" pref="301" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="298" max="-2" attributes="0"/>
+                      <Component id="LabelAdministrador" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="177" max="32767" attributes="0"/>
+                      <Component id="BotonAdminLogOut" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="249" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="BotonAgregarTelefono" alignment="1" min="-2" pref="301" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="BotonRegistrarUsuario" max="32767" attributes="0"/>
+                              <Component id="BotonModificarUsuario" pref="301" max="32767" attributes="0"/>
+                              <Component id="BotonConsultarUsuario" max="32767" attributes="0"/>
+                              <Component id="BotonListarSubastas" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="BotonParticipanteSubastarItem" alignment="1" min="-2" pref="301" max="-2" attributes="0"/>
+                          <Component id="BotonActualizarParametros" alignment="1" min="-2" pref="301" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -60,17 +67,19 @@
               </Group>
               <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Component id="BotonRegistrarUsuario" min="-2" pref="35" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="BotonModificarUsuario" min="-2" pref="35" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="BotonAgregarTelefono" min="-2" pref="35" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="BotonConsultarUsuario" min="-2" pref="35" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="BotonListarSubastas" min="-2" pref="35" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="BotonParticipanteSubastarItem" min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="BotonActualizarParametros" min="-2" pref="35" max="-2" attributes="0"/>
-              <EmptySpace pref="82" max="32767" attributes="0"/>
+              <EmptySpace pref="74" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -159,6 +168,17 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonActualizarParametrosActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="BotonParticipanteSubastarItem">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tw Cen MT" size="24" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Subastar Item"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BotonParticipanteSubastarItemActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

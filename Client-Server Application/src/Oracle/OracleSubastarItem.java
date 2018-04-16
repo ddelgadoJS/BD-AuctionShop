@@ -88,8 +88,6 @@ public class OracleSubastarItem extends javax.swing.JFrame {
         BotonSubastar = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         BotonSubastarCancelar = new javax.swing.JButton();
-        EntrySubastaComentario = new javax.swing.JTextField();
-        LabelSubastarComentario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Oracle");
@@ -109,7 +107,7 @@ public class OracleSubastarItem extends javax.swing.JFrame {
         LabelSubastarPrecio.setText("Precio:");
 
         LabelSubastarDescripcion.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
-        LabelSubastarDescripcion.setText("Descripcion:");
+        LabelSubastarDescripcion.setText("Descripción:");
 
         LabelSubastarModoEntrega.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
         LabelSubastarModoEntrega.setText("Modo de Entrega:");
@@ -175,12 +173,6 @@ public class OracleSubastarItem extends javax.swing.JFrame {
             }
         });
 
-        EntrySubastaComentario.setFont(new java.awt.Font("Tw Cen MT", 0, 20)); // NOI18N
-        EntrySubastaComentario.setToolTipText("HH24:MI:SS");
-
-        LabelSubastarComentario.setFont(new java.awt.Font("Tw Cen MT", 0, 24)); // NOI18N
-        LabelSubastarComentario.setText("Comentario:");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -188,29 +180,25 @@ public class OracleSubastarItem extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(298, 298, 298)
                 .addComponent(LabelSubastar)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 197, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 232, Short.MAX_VALUE)
                 .addComponent(BotonSubastarLogOut)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(271, 271, 271)
-                        .addComponent(EntrySubastaComentario))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addGap(0, 69, Short.MAX_VALUE)
+                        .addGap(69, 69, 69)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(LabelSubastarHoraLimite)
-                            .addComponent(LabelSubastarComentario)
                             .addComponent(LabelSubastarCategoria)
                             .addComponent(LabelSubastarSubcategoria))
                         .addGap(84, 84, 84)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ComboBoxSubastarSubcategoria, javax.swing.GroupLayout.Alignment.TRAILING, 0, 294, Short.MAX_VALUE)
-                            .addComponent(ComboBoxSubastarCategoria, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(EntrySubastaHoraLimite)
+                            .addComponent(ComboBoxSubastarSubcategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ComboBoxSubastarCategoria, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EntrySubastaHoraLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addComponent(BotonSubastar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(34, 34, 34)
                                 .addComponent(BotonSubastarCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(57, 57, 57)
@@ -228,7 +216,8 @@ public class OracleSubastarItem extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(BotonAgregarImagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel2))
+                .addGap(31, 31, 31))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -240,26 +229,21 @@ public class OracleSubastarItem extends javax.swing.JFrame {
                 .addGap(44, 44, 44)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(LabelSubastarPrecio)
-                        .addGap(23, 23, 23)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(LabelSubastarDescripcion)
-                            .addComponent(EntrySubastaDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(24, 24, 24)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(EntrySubastaModoDeEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelSubastarModoEntrega)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(EntrySubastaPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(BotonAgregarImagen))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(LabelSubastarPrecio)
+                                .addGap(23, 23, 23)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(LabelSubastarDescripcion)
+                                    .addComponent(EntrySubastaDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(24, 24, 24)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(EntrySubastaModoDeEntrega, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LabelSubastarModoEntrega)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(EntrySubastaPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(EntrySubastaFechaLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -268,25 +252,28 @@ public class OracleSubastarItem extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(EntrySubastaHoraLimite, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelSubastarHoraLimite))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EntrySubastaComentario, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LabelSubastarComentario))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(ComboBoxSubastarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(ComboBoxSubastarSubcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(LabelSubastarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(LabelSubastarSubcategoria)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonSubastar)
-                    .addComponent(BotonSubastarCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(LabelSubastarHoraLimite))
+                        .addGap(48, 48, 48)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(ComboBoxSubastarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(ComboBoxSubastarSubcategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(LabelSubastarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(LabelSubastarSubcategoria)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(BotonSubastar)
+                            .addComponent(BotonSubastarCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(46, 46, 46))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(BotonAgregarImagen)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -309,7 +296,6 @@ public class OracleSubastarItem extends javax.swing.JFrame {
         String HORAFINv = EntrySubastaHoraLimite.getText();
         String IDCATEGORIAv = Integer.toString(ComboBoxSubastarCategoria.getSelectedIndex() + 1);
         String DESCRIPCIONSUBCATEGORIAv = ComboBoxSubastarSubcategoria.getSelectedItem().toString();
-        String COMENTARIOVENDEDORv = EntrySubastaComentario.getText();
         String FOTOv = OraclePhotoPath; 
         
         OracleConnection con_ = new OracleConnection();
@@ -321,7 +307,7 @@ public class OracleSubastarItem extends javax.swing.JFrame {
         String IDSUBCATEGORIAv = rowsList.get(0);
         
         query = "SP_SUBASTAR_ITEM(ALIASVENDEDORv=>'" + ALIASVENDEDORv + "',PRECIOINICIALv=>" + PRECIOINICIALv + 
-            ",DESCRIPCIONITEMv=>'" + DESCRIPCIONITEMv + "',MODOENTREGAv=>'" + MODOENTREGAv + "',COMENTARIOVENDEDORv=>'" + COMENTARIOVENDEDORv +
+            ",DESCRIPCIONITEMv=>'" + DESCRIPCIONITEMv + "',MODOENTREGAv=>'" + MODOENTREGAv + 
             "',FECHAFINv=>'" + FECHAFINv + "',HORAFINv=>'" + HORAFINv + "',IDSUBCATEGORIAv=>" + IDSUBCATEGORIAv + ",FOTOv=>'" + FOTOv + "')";
  
         rowsList = con_.EjecutarSP(query, con); // 1 : success.
@@ -433,7 +419,6 @@ public class OracleSubastarItem extends javax.swing.JFrame {
     private javax.swing.JButton BotonSubastarLogOut;
     private javax.swing.JComboBox<String> ComboBoxSubastarCategoria;
     private javax.swing.JComboBox<String> ComboBoxSubastarSubcategoria;
-    private javax.swing.JTextField EntrySubastaComentario;
     private javax.swing.JTextField EntrySubastaDescripcion;
     private javax.swing.JTextField EntrySubastaFechaLimite;
     private javax.swing.JTextField EntrySubastaHoraLimite;
@@ -441,7 +426,6 @@ public class OracleSubastarItem extends javax.swing.JFrame {
     private javax.swing.JTextField EntrySubastaPrecio;
     private javax.swing.JLabel LabelSubastar;
     private javax.swing.JLabel LabelSubastarCategoria;
-    private javax.swing.JLabel LabelSubastarComentario;
     private javax.swing.JLabel LabelSubastarDescripcion;
     private javax.swing.JLabel LabelSubastarFechaLimite;
     private javax.swing.JLabel LabelSubastarHoraLimite;

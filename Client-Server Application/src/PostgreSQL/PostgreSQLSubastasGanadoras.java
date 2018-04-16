@@ -42,7 +42,8 @@ public class PostgreSQLSubastasGanadoras extends javax.swing.JFrame {
         rowsList = con_.FunctionReturningString(query, columnName);
         
         for (String subasta: rowsList) {
-            model.addElement(subasta);
+            String[] parts = subasta.split(",");
+            model.addElement(parts[0] + ", Vendedor: " + parts[1] + ", Precio Inicial: " + parts[2] + "\", Precio Final: $" + parts[4] + "\", Fecha final: $" + parts[6] + ", Comentario vendedor: " + parts[7]);
         }
         
         ListSubastasRealizadas.setModel(model);
@@ -132,13 +133,15 @@ public class PostgreSQLSubastasGanadoras extends javax.swing.JFrame {
                                     .addGap(327, 327, 327)
                                     .addComponent(BotonSubastasRealizadasAgregarComentario))
                                 .addComponent(LabelSubastasRealizadasComentario)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(EntrySubastasRealizadasComentario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(LabelSubastasRealizadasCalificacion)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(SpinnerSubastasRealizadasCalificacion, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 116, Short.MAX_VALUE)))
+                        .addGap(0, 116, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(

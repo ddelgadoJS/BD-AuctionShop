@@ -47,7 +47,8 @@ public class PostgreSQLSubastasRealizadas extends javax.swing.JFrame {
         rowsList = con_.FunctionReturningString(query, columnName);
         
         for (String subasta: rowsList) {
-            model.addElement(subasta);
+            String[] parts = subasta.split(",");
+            model.addElement(parts[0] + ", Vendedor: " + parts[1] + ", Precio Inicial: " + parts[2] + "\", Precio Final: $" + parts[4] + "\", Fecha final: $" + parts[6] + ", Comentario vendedor: " + parts[7]);
         }
         
         ListSubastasFinalizadas.setModel(model);
@@ -126,12 +127,6 @@ public class PostgreSQLSubastasRealizadas extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(LabelSubastasFinalizadas)
-                .addGap(134, 134, 134)
-                .addComponent(BotonSubastasFinalizadasLogOut)
-                .addGap(20, 20, 20))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(BotonSubastasFinalizadasVolver, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -144,13 +139,21 @@ public class PostgreSQLSubastasRealizadas extends javax.swing.JFrame {
                             .addComponent(BotonSubastasFinalizadasAgregarComentario))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(96, 96, 96)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(LabelSubastasFinalizadasComentario)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 560, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(LabelSubastasFinalizadasComentario))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addContainerGap()
                             .addComponent(EntrySubastasFinalizadasComentario, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(144, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(LabelSubastasFinalizadas)
+                        .addGap(134, 134, 134)
+                        .addComponent(BotonSubastasFinalizadasLogOut)))
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

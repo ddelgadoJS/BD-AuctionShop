@@ -162,8 +162,6 @@ public class OraclePantallaInicial extends javax.swing.JFrame {
         String usrPassword = parts[1];
         String usrType = parts[2];
         
-        System.out.println(usrType);
-        
         if (usrAlias.equals("1") && usrPassword.equals("1")) { // Correct alias and password.
             OraclePantallaInicial.aliasUsuario = USR; // Sets the user alias to be used on other screens.
             
@@ -195,7 +193,7 @@ public class OraclePantallaInicial extends javax.swing.JFrame {
         // Update Oracle system parameters
         OracleConnection Oraclecon_ = new OracleConnection();
         Connection Oraclecon_2 = Oraclecon_.CrearConexion();
-        rowsList = Oraclecon_.EjecutarSP("SP_SELECT_PARAMETROS", Oraclecon_2);
+        rowsList = Oraclecon_.EjecutarSP("SP_SELECT_PARAMETROS(IDv=>1)", Oraclecon_2);
         
         String[] parts2 = rowsList.get(0).split(", ");
         
